@@ -1,0 +1,7 @@
+{
+    "editor.tabSize": 4,
+    "eslint.workingDirectories": [
+        { "mode": "auto" }
+    ],
+    "javascript.preferences.quoteStyle": "single"
+}

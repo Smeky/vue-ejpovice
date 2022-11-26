@@ -1,0 +1,28 @@
+
+// Colors
+$color-primary: #ffffff;
+
+$color-bg-web: #F2F5F7;
+$color-divider-soft: #E6ECEE;
+$color-divider-medium: #DBE3E7;
+$color-main-text: #333333;
+$color-main-web: #12465C;
+$color-main-dark-web: #0D3242;
+
+@mixin text-hover-underline() {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+}
+
+// Breakpoints (for responsive design)
+@mixin md {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin lg {
+    @media (min-width: 1024px) {
+        @content;
+    }
+}
