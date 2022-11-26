@@ -40,6 +40,7 @@ export default {
     color: $color-primary;
     width: 100vw;
     height: 100vh;
+    background-color: $color-main-dark-web;
 
     &::after {
         content: "";

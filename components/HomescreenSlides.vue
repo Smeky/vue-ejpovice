@@ -34,7 +34,7 @@ export default {
 
 <style lang="scss">
 .homescreen-slides {
-    z-index: -1;
+    z-index: 0;
     height: 70%;
     overflow: hidden;
 

@@ -7,7 +7,7 @@
             <Homescreen />
 
             <!-- Placeholder for scroll -->
-            <div class="bg-white max-w-3xl mx-auto my-14 text-center">
+            <div class="bg-white max-w-3xl mx-4 md:mx-auto my-14 text-center">
                 <h2 class="text-2xl my-4">Scroll placeholder</h2>
                 <span>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
@@ -27,14 +27,6 @@ export default {
 </script>
 
 <style lang="scss">
-body {
-    background-color: $color-main-dark-web;
-
-    @include lg() {
-        background-color: $color-primary;
-    }
-}
-
 .home {
     margin-left: 0;
     transition: all 0.4s ease-in-out;
