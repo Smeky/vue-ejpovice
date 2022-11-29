@@ -2,9 +2,8 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   ssr: false,
   target: 'static',
-
-  router: {
-    base: '/vue-ejpovice/'
+  server: {
+    port: 3005,
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -22,6 +21,20 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
+  },
+
+  // We need this for github pages
+  router: {
+    base: '/vue-ejpovice/'
+  },
+
+  // Axios proxy config
+  axios: { 
+    proxy: true,
+    browserBaseURL: 'http://localhost:80' // dev
+  },
+  proxy: {
+    '/api/': 'https://localhost:80/api/', // dev
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -46,6 +59,7 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/style-resources',  // style-resources allow us to not having to import scss files in every component
+    '@nuxtjs/axios',
   ],
 
   styleResources: {

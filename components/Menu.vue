@@ -8,17 +8,15 @@
             </div>
 
             <div class="flex flex-col justify-between h-full ml-10 lg:ml-20 mt-[10%]">
-                <div class="menu__items flex flex-col gap-y-8 text-2xl lg:text-3xl">
-                    <span>O projektu</span>
-                    <span>Ceník</span>
-                    <span>Lokalita</span>
-                    <span>Standardy</span>
-                    <span>Financování</span>
-                    <span>Galerie</span>
-                    <span>Kontakt</span>
-                </div>
+                <Loading :loading="!$store.state.navigation.length">
+                    <div class="menu__items flex flex-col gap-y-8 text-2xl lg:text-3xl">
+                            <span v-for="item in $store.state.navigation" :key="item.label">
+                                {{ item.label}}
+                            </span>
+                    </div>
+                </Loading>
 
-                <div class="menu__items flex flex-col gap-y-3 text-sm">
+                <div class="menu__items flex flex-col gap-y-3 text-sm mt-16">
                     <span>Prohlášení developera</span>
                     <span>Cookies</span>
                 </div>
@@ -34,6 +32,9 @@ export default {
             type: Boolean,
             default: false,
         }
+    },
+    async fetch() {
+        await this.$store.dispatch('fetchNavigation')
     }
 }
 </script>
@@ -41,8 +42,6 @@ export default {
 <style lang="scss">
 $menu-width-desktop: 640px;
 $menu-width-mobile: 100%;
-$menu-height-mobile: 520px;
-$menu-height-desktop: 560px;
 
 .menu-container {
     position: fixed;
@@ -77,11 +76,6 @@ $menu-height-desktop: 560px;
 .menu {
     width: 100%;
     white-space: nowrap;
-    height: $menu-height-mobile;
-
-    @include lg() {
-        height: $menu-height-desktop;
-    }
 
     &__close {
         width: 50px;
