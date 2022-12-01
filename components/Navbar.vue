@@ -3,7 +3,7 @@
     <div class="navbar" v-if="!$store.state.isMobile" :class="{ 'navbar__scrolled': isScrolled }">
         <div class="navbar__func flex gap-x-4 h-fit" @click="$store.dispatch('toggleMenu')">
             <img src="~/assets/icons/burger.svg" />
-            <span class="text-xl">Menu</span>
+            <span class="text-navbar">Menu</span>
         </div>
         <div class="flex uppercase gap-x-4 h-fit">
             <img src="~/assets/icons/nav-logo.svg" />
@@ -14,7 +14,7 @@
         </div>
 
         <div class="navbar__func flex gap-x-8 h-fit">
-            <span class="whitespace-nowrap text-xl">Vyberte si</span>
+            <span class="whitespace-nowrap text-navbar">Vyberte si</span>
             <img src="~/assets/icons/nav-home.svg" />
         </div>
     </div>

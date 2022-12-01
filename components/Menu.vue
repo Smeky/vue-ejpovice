@@ -9,16 +9,23 @@
 
             <div class="flex flex-col justify-between h-full ml-10 lg:ml-20 mt-[10%]">
                 <Loading :loading="!$store.state.navigation.length">
-                    <div class="menu__items flex flex-col gap-y-8 text-2xl lg:text-3xl">
-                            <span v-for="item in $store.state.navigation" :key="item.label">
+                    <div class="menu__items flex flex-col gap-y-8">
+                            <span v-for="item in $store.state.navigation" 
+                                  :key="item.label"
+                                  class="text-web-menu color-main-text"
+                            >
                                 {{ item.label}}
                             </span>
                     </div>
                 </Loading>
 
                 <div class="menu__items flex flex-col gap-y-3 text-sm mt-16">
-                    <span>Prohlášení developera</span>
-                    <span>Cookies</span>
+                    <span class="text-sm-paragraph color-main-text">
+                        Prohlášení developera
+                    </span>
+                    <span class="text-sm-paragraph color-main-text">
+                        Cookies
+                    </span>
                 </div>
             </div>
         </div>
@@ -100,8 +107,6 @@ $menu-width-mobile: 100%;
 
     // Pointer stuff for menu items
     &__items {
-        color: $color-main-text;
-
         > span {
             cursor: pointer;
 

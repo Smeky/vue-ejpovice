@@ -1,9 +1,14 @@
 
 export const state = () => ({
     isMobile: false,
-    isMenuOpen: true,
+    isMenuOpen: false,
 
-    navigation: [],
+    navigation: [
+        { label: 'Placeholders:', url: '' },
+        { label: 'Home', url: '' },
+        { label: 'About', url: '' },
+        { label: 'Contact', url: '' },
+    ],
 })
 
 export const mutations = {

@@ -2,6 +2,29 @@
 @import './variables.scss';
 @import './mixins.scss';
 
+/** 
+    === COLORS ===
+*/
+
+.color-web-background { color: $color-web-background; } 
+.color-soft-divider { color: $color-soft-divider; } 
+.color-medium-divider { color: $color-medium-divider; } 
+.color-main-text { color: $color-main-text; } 
+.color-main-web-blue { color: $color-main-web-blue; } 
+.color-darken-web-blue { color: $color-darken-web-blue; } 
+.color-lighten-web-blue { color: $color-lighten-web-blue; } 
+.color-main-green { color: $color-main-green; } 
+.color-main-green-darken { color: $color-main-green-darken; } 
+.color-dark-green { color: $color-dark-green; } 
+.color-cta { color: $color-cta; } 
+.color-gradient-green { color: $color-gradient-green; } 
+.color-gradient-blue { color: $color-gradient-blue; } 
+.color-free { color: $color-free; } 
+.color-sold { color: $color-sold; } 
+.color-reservation { color: $color-reservation; } 
+.color-support-a { color: $color-support-a; } 
+.color-support-b { color: $color-support-b; } 
+
 
 /**
     === TEXT DEFINITIONS ===
@@ -57,7 +80,12 @@
 .text-md-ui-desc { @include text-definition(Roboto, 14px, 15px, 500); }
 .text-sm-ui-desc { @include text-definition(Roboto, 13px, 14px); }
 
+// Header
+
+.text-navbar { @include text-definition(Domine, 16px, 22px); }
+
 // Unique cases
 
-.text-num      { @include text-definition(Domine, 60px, 120px); }
+.text-lg-num   { @include text-definition(Domine, 60px, 120px); }
+.text-sm-num   { @include text-definition(Roboto, 12px, 14px); }
 .text-web-menu { @include text-definition(Domine, 26px, 30px); }
