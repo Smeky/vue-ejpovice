@@ -64,11 +64,25 @@ export default {
 
   styleResources: {
     scss: [
-      '~/assets/scss/main.scss',
+      '~/assets/scss/variables.scss',
+      '~/assets/scss/mixins.scss',
     ]
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-  }
+  },
+
+  tailwindcss: {
+    config: {
+      theme: {
+        extend: {
+          fontFamily: {
+            domine: ['Domine', 'serif'],
+            roboto: ['Roboto', 'sans-serif'],
+          },
+        }
+      }
+    }
+  },
 }

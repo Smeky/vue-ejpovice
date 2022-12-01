@@ -37,10 +37,10 @@ export default {
 
 <style lang="scss">
 .homescreen {
-    color: $color-primary;
+    color: $color-white;
     width: 100vw;
     height: 100vh;
-    background-color: $color-main-dark-web;
+    background-color: $color-darken-web-blue;
 
     &::after {
         content: "";
@@ -63,7 +63,7 @@ export default {
         > div {
             width: 40px;
             height: 40px;
-            background-color: $color-primary;
+            background-color: $color-white;
             border-radius: 100%;
             transition: all 0.3s ease-in-out;
         }

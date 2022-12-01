@@ -46,7 +46,7 @@ export default {
         width: 100%;
         height: 200px;
         z-index: 1;
-        background: linear-gradient(to top, $color-main-dark-web 0, transparent 100%);
+        background: linear-gradient(to top, $color-darken-web-blue 0, transparent 100%);
 
         @include lg() {
             background: none;
@@ -63,7 +63,7 @@ export default {
             width: 100%;
             height: 100%;
             z-index: 1;
-            background-color: rgba($color-main-dark-web, 0.4);
+            background-color: rgba($color-darken-web-blue, 0.4);
         }
     }
 

@@ -51,7 +51,7 @@ $menu-width-mobile: 100%;
     overflow: hidden;
     visibility: hidden;
     
-    background-color: $color-divider-soft;
+    background-color: $color-soft-divider;
     transition: all 0.4s ease-in-out;
 
     height: 0;

@@ -1,0 +1,24 @@
+
+@mixin font-face($name, $path, $format, $weight: normal, $style: normal) {
+    @font-face {
+        font-family: $name;
+        font-weight: $weight;
+        font-style: $style;
+
+        src: url($path) format($format);
+    }
+}
+
+@include font-face('Domine', '../fonts/Domine/Domine-VariableFont_wght.ttf', 'truetype');
+
+@include font-face('Roboto', '../fonts/Roboto/Roboto-Regular.ttf', 'truetype');
+@include font-face('Roboto', '../fonts/Roboto/Roboto-Bold.ttf', 'truetype', bold);
+@include font-face('Roboto', '../fonts/Roboto/Roboto-Italic.ttf', 'truetype', normal, italic);
+@include font-face('Roboto', '../fonts/Roboto/Roboto-BoldItalic.ttf', 'truetype', bold, italic);
+@include font-face('Roboto', '../fonts/Roboto/Roboto-Medium.ttf', 'truetype', 500);
+@include font-face('Roboto', '../fonts/Roboto/Roboto-MediumItalic.ttf', 'truetype', 500, italic);
+@include font-face('Roboto', '../fonts/Roboto/Roboto-Light.ttf', 'truetype', 300);
+@include font-face('Roboto', '../fonts/Roboto/Roboto-LightItalic.ttf', 'truetype', 300, italic);
+@include font-face('Roboto', '../fonts/Roboto/Roboto-Thin.ttf', 'truetype', 100);
+@include font-face('Roboto', '../fonts/Roboto/Roboto-ThinItalic.ttf', 'truetype', 100, italic);
+

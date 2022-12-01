@@ -34,10 +34,10 @@ export default {
   left: calc(50% - 20px);
   border-radius: 50%;
   
-  border-top: 4px solid rgba($color-main-web, 1.0);
-  border-left: 4px solid rgba($color-main-web, 1.0);
-  border-bottom: 4px solid rgba($color-main-web, 1.0);
-  border-right: 4px solid rgba($color-main-web, 0.0);
+  border-top: 4px solid rgba($color-main-web-blue, 1.0);
+  border-left: 4px solid rgba($color-main-web-blue, 1.0);
+  border-bottom: 4px solid rgba($color-main-web-blue, 1.0);
+  border-right: 4px solid rgba($color-main-web-blue, 0.0);
   animation: spinner .6s linear infinite;
 }
 
