@@ -2,9 +2,62 @@
 @import './variables.scss';
 @import './mixins.scss';
 
-.test {
-    font-family: Domine;
-    font-weight: bold;
-    font-style: italic;
+
+/**
+    === TEXT DEFINITIONS ===
+*/
+
+@mixin text-definition($font-family, $font-size-mobile, $font-size-desktop, $font-weight: normal) {
+    font-family: $font-family;
+    font-size: $font-size-mobile;
+    font-weight: $font-weight;
+    
+    @include md() {
+        font-size: $font-size-desktop;
+    }
 }
 
+// Title
+.text-cta-title { @include text-definition(Domine, 40px, 80px); }
+.text-gt-title  { @include text-definition(Domine, 35px, 60px); }
+.text-lg-title  { @include text-definition(Domine, 32px, 40px); }
+.text-md-title  { @include text-definition(Domine, 26px, 30px); }
+.text-sm-title  { @include text-definition(Domine, 21px, 25px); }
+
+// Paragraph
+
+.text-lg-paragraph { @include text-definition(Roboto, 15px, 18px); }
+.text-md-paragraph { @include text-definition(Roboto, 14px, 16px); }
+.text-sm-paragraph { @include text-definition(Roboto, 13px, 14px); }
+.text-tn-paragraph { @include text-definition(Roboto, 10px, 12px); }
+
+// Capital
+
+.text-lg-capital { @include text-definition(Roboto, 13px, 14px, bold); }
+.text-md-capital { @include text-definition(Roboto, 12px, 13px, bold); }
+.text-sm-capital { @include text-definition(Roboto, 10px, 11px, 500); }
+
+// Property Table
+
+.text-ptable-desc  { @include text-definition(Roboto, 12px, 13px, bold); }
+.text-ptable-value { @include text-definition(Roboto, 13px, 15px); }
+
+// Data Table
+
+.text-dtable-desc  { @include text-definition(Roboto, 13px, 12px); }
+.text-dtable-value { @include text-definition(Roboto, 14px, 13px, 500); }
+
+// Button
+
+.text-gt-button { @include text-definition(Roboto, 16px, 18px, 500); }
+.text-lg-button { @include text-definition(Roboto, 13px, 14px, 500); }
+.text-md-button { @include text-definition(Roboto, 12px, 13px, 500); }
+
+// UI Description
+.text-md-ui-desc { @include text-definition(Roboto, 14px, 15px, 500); }
+.text-sm-ui-desc { @include text-definition(Roboto, 13px, 14px); }
+
+// Unique cases
+
+.text-num      { @include text-definition(Domine, 60px, 120px); }
+.text-web-menu { @include text-definition(Domine, 26px, 30px); }
