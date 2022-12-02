@@ -75,10 +75,12 @@ $slidebox-width-desktop: 640px;
 $slidebox-width-mobile: 100%;
 
 .slidebox-anchor {
-    transition: transform 0.4s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 body.slidebox-open {
+    overflow: hidden;
+
     @include lg() {
         &.slidebox--left .slidebox-anchor {
             transform: translateX($slidebox-width-desktop);
