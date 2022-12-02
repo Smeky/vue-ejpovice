@@ -1,8 +1,8 @@
 <template>
-    <div class="home flex overflow-x-hidden" :class="{ 'menu-open': $store.state.isMenuOpen }">
-        <Menu :open="$store.state.isMenuOpen" />
+    <div class="home flex overflow-x-hidden">
+        <Menu />
 
-        <div>
+        <div class="slidebox-anchor">
             <Navbar />
             <Homescreen />
 

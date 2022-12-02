@@ -1,13 +1,7 @@
 <template>
-    <div class="menu-container" :class="{ 'open': open }">
+    <SlideBox :open="$store.state.isMenuOpen" @close="$store.dispatch('closeMenu')" position="right">
         <div class="menu">
-            <div class="menu__close grid place-items-center ml-auto mt-5 mr-5 lg:mt-8 lg:mr-8"
-                 @click="$store.dispatch('closeMenu')"
-            >
-                <img src="~/assets/icons/menu-close.svg" />
-            </div>
-
-            <div class="flex flex-col justify-between h-full ml-10 lg:ml-20 mt-[10%]">
+            <div class="flex flex-col justify-between h-full ml-10 lg:ml-20">
                 <Loading :loading="!$store.state.navigation.length">
                     <div class="menu__items flex flex-col gap-y-8">
                             <span v-for="item in $store.state.navigation" 
@@ -29,17 +23,11 @@
                 </div>
             </div>
         </div>
-    </div>
+    </SlideBox>
 </template>
 
 <script>
 export default {
-    props: {
-        open: {
-            type: Boolean,
-            default: false,
-        }
-    },
     async fetch() {
         await this.$store.dispatch('fetchNavigation')
     }

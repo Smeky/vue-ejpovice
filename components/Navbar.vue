@@ -1,6 +1,6 @@
 <template>
     <!-- Desktop navbar -->
-    <div class="navbar" v-if="!$store.state.isMobile" :class="{ 'navbar__scrolled': isScrolled }">
+    <div id="navbar" class="navbar" v-if="!$store.state.isMobile" :class="{ 'navbar__scrolled': isScrolled }">
         <div class="navbar__func flex gap-x-4 h-fit" @click="$store.dispatch('toggleMenu')">
             <img src="~/assets/icons/burger.svg" />
             <span class="text-navbar">Menu</span>
@@ -58,27 +58,12 @@ export default {
 </script>
 
 <style lang="scss">
-// Menu slide in animation
-.home {
-    .navbar {
-        margin-left: 0;
-        transition: all 0.4s ease-in-out;
-    }
-
-    @include lg() {
-        &.menu-open {
-            .navbar {
-                margin-left: 640px;
-            }
-        }
-    }
-}
-
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: white;
+    transition: all 0.4s ease-in-out;
 
     position: fixed;
     top: 0;
@@ -86,7 +71,7 @@ export default {
     z-index: 1;
 
     height: 150px;
-    width: 100%;
+    width: 100vw;
     padding: 0 60px;
 
     @include lg() {

@@ -2,6 +2,15 @@
 @import './variables.scss';
 @import './mixins.scss';
 
+/**
+    Utilities
+*/
+
+.button {
+    cursor: pointer;
+    user-select: none;
+}
+
 /** 
     === COLORS ===
 */
