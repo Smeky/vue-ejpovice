@@ -1,10 +1,10 @@
 <template>
     <div class="home flex overflow-x-hidden">
-        <!-- Slidebox-anchor moves the navbar as well as the block bellow when slidebox gets opened -->
-        <Navbar class="slidebox-anchor" />
+        <!-- Slidebox-anchor moves the navbar as well as the block bellow when sidebox gets opened -->
+        <Navbar class="sidebox-anchor" />
         <Menu />
 
-        <div class="slidebox-anchor">
+        <div class="sidebox-anchor">
             <Homescreen />
 
             <!-- Placeholder for scroll -->

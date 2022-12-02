@@ -1,5 +1,5 @@
 <template>
-    <div class="slidebox" 
+    <div class="sidebox" 
         :class="{ 
             'open': open, 
             'right': position === 'right', 
@@ -7,11 +7,11 @@
         }" 
         v-click-outside="handleClickOutside"
     >
-        <div class="slidebox--close button" @click="$emit('close')">
+        <div class="sidebox--close button" @click="$emit('close')">
             <img src="~/assets/icons/menu-close.svg" />
         </div>
         
-        <div class="slidebox--content mt-20">
+        <div class="sidebox--content mt-20">
             <slot></slot>
         </div>
     </div>
@@ -33,7 +33,7 @@ export default {
         isClosable: false,
     }),
     mounted() {
-        // If the slidebox is open on mount, we need to update the root classes
+        // If the sidebox is open on mount, we need to update the root classes
         this.updateBodyClass()
     },
     watch: {
@@ -45,9 +45,9 @@ export default {
     methods: {
         updateBodyClass() {
             if (this.open) {
-                document.body.classList.add('slidebox-open', `slidebox--${this.position}`)
+                document.body.classList.add('sidebox-open', `sidebox--${this.position}`)
             } else {
-                document.body.classList.remove('slidebox-open', `slidebox--${this.position}`)
+                document.body.classList.remove('sidebox-open', `sidebox--${this.position}`)
             }
         },
         handleClosableState() {
@@ -71,27 +71,27 @@ export default {
 </script>
 
 <style lang="scss">
-$slidebox-width-desktop: 640px;
-$slidebox-width-mobile: 100%;
+$sidebox-width-desktop: 640px;
+$sidebox-width-mobile: 100%;
 
-body.slidebox-open {
+body.sidebox-open {
     overflow: hidden;
 
     @include lg() {
-        &.slidebox--left .slidebox-anchor {
-            transform: translateX($slidebox-width-desktop);
+        &.sidebox--left .sidebox-anchor {
+            transform: translateX($sidebox-width-desktop);
         }
-        &.slidebox--right .slidebox-anchor {
-            transform: translateX(-$slidebox-width-desktop);
+        &.sidebox--right .sidebox-anchor {
+            transform: translateX(-$sidebox-width-desktop);
         }
     }
 
-    .slidebox-anchor:before {
+    .sidebox-anchor:before {
         opacity: 0.6;
     }
 }
 
-.slidebox-anchor {
+.sidebox-anchor {
     transition: all 0.3s ease-in-out;
 
     &:before {
@@ -104,12 +104,12 @@ body.slidebox-open {
         height: 100vh;
         background-color: $color-darken-web-blue;
         opacity: 0;
-        z-index: 10;
+        z-index: 9;
         transition: opacity 0.3s ease-in-out;
     }
 }
 
-.slidebox {
+.sidebox {
     position: fixed;
     top: 0;
 
@@ -119,12 +119,12 @@ body.slidebox-open {
     background-color: $color-web-background;
 
     height: 0;
-    width: $slidebox-width-mobile;
+    width: $sidebox-width-mobile;
     z-index: 10;
 
     @include lg() {
         height: 100vh;
-        width: $slidebox-width-desktop;
+        width: $sidebox-width-desktop;
         z-index: 0;
     }
 
@@ -138,13 +138,13 @@ body.slidebox-open {
     }
 }
 
-.slidebox--content {
+.sidebox--content {
     position: relative;
     transition: transform 0.3s ease-in-out;
     width: 100%;
 }
 
-.slidebox--close {
+.sidebox--close {
     position: absolute;
     top: 0;
     right: 0;
