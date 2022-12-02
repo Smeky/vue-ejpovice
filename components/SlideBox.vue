@@ -2,7 +2,9 @@
     <div class="slidebox" 
         :class="{ 
             'open': open, 
-            'right': position === 'right', 'left': position === 'left' }" 
+            'right': position === 'right', 
+            'left': position === 'left'
+        }" 
         v-click-outside="handleClickOutside"
     >
         <div class="slidebox--close button" @click="$emit('close')">
@@ -31,6 +33,7 @@ export default {
         isClosable: false,
     }),
     mounted() {
+        // If the slidebox is open on mount, we need to update the root classes
         this.updateBodyClass()
     },
     watch: {
@@ -76,11 +79,13 @@ $slidebox-width-mobile: 100%;
 }
 
 body.slidebox-open {
-    &.slidebox--left .slidebox-anchor {
-        transform: translateX($slidebox-width-desktop);
-    }
-    &.slidebox--right .slidebox-anchor {
-        transform: translateX(-$slidebox-width-desktop);
+    @include lg() {
+        &.slidebox--left .slidebox-anchor {
+            transform: translateX($slidebox-width-desktop);
+        }
+        &.slidebox--right .slidebox-anchor {
+            transform: translateX(-$slidebox-width-desktop);
+        }
     }
 }
 
@@ -91,13 +96,16 @@ body.slidebox-open {
     visibility: hidden;
     overflow: hidden;
     transition: all 0.3s ease-in-out;
-    z-index: 0;
+    background-color: $color-web-background;
 
-    height: 100vh;
+    height: 0;
     width: $slidebox-width-mobile;
+    z-index: 10;
 
     @include lg() {
+        height: 100vh;
         width: $slidebox-width-desktop;
+        z-index: 0;
     }
 
     &.right {
@@ -106,6 +114,7 @@ body.slidebox-open {
 
     &.open {
         visibility: visible;
+        height: 100vh;
     }
 }
 

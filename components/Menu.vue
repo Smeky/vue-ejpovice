@@ -1,5 +1,5 @@
 <template>
-    <SlideBox :open="$store.state.isMenuOpen" @close="$store.dispatch('closeMenu')" position="right">
+    <SlideBox :open="$store.state.isMenuOpen" @close="$store.dispatch('closeMenu')" position="left">
         <div class="menu">
             <div class="flex flex-col justify-between h-full ml-10 lg:ml-20">
                 <Loading :loading="!$store.state.navigation.length">
