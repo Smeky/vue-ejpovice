@@ -41,6 +41,7 @@ export default {
     width: 100vw;
     height: 100vh;
     background-color: $color-darken-web-blue;
+    user-select: none;
 
     &::after {
         content: "";

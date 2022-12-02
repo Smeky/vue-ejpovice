@@ -74,10 +74,6 @@ export default {
 $slidebox-width-desktop: 640px;
 $slidebox-width-mobile: 100%;
 
-.slidebox-anchor {
-    transition: all 0.3s ease-in-out;
-}
-
 body.slidebox-open {
     overflow: hidden;
 
@@ -88,6 +84,28 @@ body.slidebox-open {
         &.slidebox--right .slidebox-anchor {
             transform: translateX(-$slidebox-width-desktop);
         }
+    }
+
+    .slidebox-anchor:before {
+        opacity: 0.6;
+    }
+}
+
+.slidebox-anchor {
+    transition: all 0.3s ease-in-out;
+
+    &:before {
+        pointer-events: none;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: $color-darken-web-blue;
+        opacity: 0;
+        z-index: 10;
+        transition: opacity 0.3s ease-in-out;
     }
 }
 
