@@ -9,10 +9,69 @@
 .button {
     cursor: pointer;
     user-select: none;
+    display: inline-flex;
+}
+
+.button--main-green {
+    background-color: $color-main-green;
+    color: $color-white;
+    padding: 16px 25px;
+    border-radius: 50px;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+        padding: 16px 30px;
+    }
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/**
+    === PROJECT SPACING ===
+*/
+
+@mixin margin-definition($property, $spacing-mobile, $spacing-desktop) {
+    #{$property}: $spacing-mobile;
+
+    @include lg() {
+        #{$property}: $spacing-desktop;
+    }
+}
+
+.mt-sm { @include margin-definition(margin-top, $spacing-sm-mobile, $spacing-sm-desktop); }
+.mb-sm { @include margin-definition(margin-bottom, $spacing-sm-mobile, $spacing-sm-desktop); }
+.my-sm {
+    @include margin-definition(margin-top, $spacing-sm-mobile, $spacing-sm-desktop);
+    @include margin-definition(margin-bottom, $spacing-sm-mobile, $spacing-sm-desktop);
+}
+
+.mt-md { @include margin-definition(margin-top, $spacing-md-mobile, $spacing-md-desktop); }
+.mb-md { @include margin-definition(margin-bottom, $spacing-md-mobile, $spacing-md-desktop); }
+.my-md {
+    @include margin-definition(margin-top, $spacing-md-mobile, $spacing-md-desktop);
+    @include margin-definition(margin-bottom, $spacing-md-mobile, $spacing-md-desktop);
+}
+
+.mt-lg { @include margin-definition(margin-top, $spacing-lg-mobile, $spacing-lg-desktop); }
+.mb-lg { @include margin-definition(margin-bottom, $spacing-lg-mobile, $spacing-lg-desktop); }
+.my-lg {
+    @include margin-definition(margin-top, $spacing-lg-mobile, $spacing-lg-desktop);
+    @include margin-definition(margin-bottom, $spacing-lg-mobile, $spacing-lg-desktop);
+}
+
+.mt-gt { @include margin-definition(margin-top, $spacing-gt-mobile, $spacing-gt-desktop); }
+.mb-gt { @include margin-definition(margin-bottom, $spacing-gt-mobile, $spacing-gt-desktop); }
+.my-gt {
+    @include margin-definition(margin-top, $spacing-gt-mobile, $spacing-gt-desktop);
+    @include margin-definition(margin-bottom, $spacing-gt-mobile, $spacing-gt-desktop);
 }
 
 /** 
-    === COLORS ===
+    === PROJECT COLORS ===
 */
 
 .color-web-background { color: $color-web-background; } 
@@ -36,7 +95,7 @@
 
 
 /**
-    === TEXT DEFINITIONS ===
+    === PROJECT TEXT DEFINITIONS ===
 */
 
 @mixin text-definition($font-family, $font-size-mobile, $font-size-desktop, $font-weight: normal) {

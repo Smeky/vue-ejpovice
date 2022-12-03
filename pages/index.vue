@@ -7,15 +7,21 @@
         <div class="sidebox-anchor">
             <Homescreen />
 
-            <!-- Placeholder for scroll -->
-            <div class="bg-white max-w-3xl mx-4 md:mx-auto my-14 text-center">
-                <h2 class="text-2xl my-4">Scroll placeholder</h2>
-                <span>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.    
-                </span>
+            <div class="my-gt mx-5 flex-center">
+                <div class="flex-center flex-col lg:w-[800px] text-center">
+                    <h2 class="text-lg-title color-main-green lg:mx-24">
+                        Prodej 30 pasivních domů a 4 pozemků v těsné blízkosti Plzně i přírody.
+                    </h2>
+
+                    <p class="text-md-paragraph my-sm">
+                        Projekt Domy Ejpovice nabízí k prodeji elegantní pasivní domy s prostornou zahradou, terasou i vlastním parkováním, situovaných v atraktivní lokalitě Plzeň - Ejpovice. Domy ztělesňují nový koncept moderního bydlení, v jehož rámci je kladen důraz na vytvoření komfortního domova v klidném přírodním prostředí a také energetickou soběstačnost. Projekt je výsledkem již úspěšně dokončené I. etapy.
+                    </p>
+                    
+                    <div class="button button--main-green text-lg-button uppercase">
+                        <span>více o projektu</span>
+                        <img class="ml-3" src="~/assets/icons/arrow-right.svg" />
+                    </div>
+                </div>
             </div>
         </div>
     </div>
