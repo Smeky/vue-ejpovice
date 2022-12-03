@@ -36,6 +36,16 @@
                     </div>
                 </div>
             </Poster>
+
+            <div class="my-lg flex-center">
+                <div class="flex-center flex-col lg:w-[800px]">
+                    <h2 class="text-lg-title text-center mb-md lg:mx-24">
+                        Energeticky soběstačné a úsporné bydlení
+                    </h2>
+
+                    <FlagEnergySavings />
+                </div>
+            </div>
         </div>
     </div>
 </template>

@@ -1,9 +1,7 @@
 <template>
     <div class="poster poster-height">
         <img class="poster--bg" :src="image" />
-        <div class="poster--content">
-            <slot></slot>
-        </div>
+        <slot></slot>
     </div>
 </template>
 
@@ -33,9 +31,4 @@ export default {
     z-index: 0;
 }
 
-.poster--content {
-    position: relative;
-    z-index: 1;
-    height: 100%;
-}
 </style>
