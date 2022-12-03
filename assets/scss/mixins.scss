@@ -1,9 +1,4 @@
 
-@mixin text-hover-underline() {
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-}
-
 // Breakpoints (for responsive design)
 @mixin md {
     @media (min-width: 768px) {
@@ -15,4 +10,15 @@
     @media (min-width: 1024px) {
         @content;
     }
+}
+
+
+@mixin text-hover-underline() {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+}
+
+@mixin button-base() {
+    cursor: pointer;
+    user-select: none;
 }

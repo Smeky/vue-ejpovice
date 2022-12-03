@@ -7,14 +7,13 @@
 */
 
 .button {
-    cursor: pointer;
-    user-select: none;
-    display: inline-flex;
+    @include button-base();
 }
 
-.button--main-green {
-    background-color: $color-main-green;
-    color: $color-white;
+.button--rounded {
+    @include button-base();
+    
+    display: inline-flex;
     padding: 16px 25px;
     border-radius: 50px;
     transition: all 0.2s ease-in-out;
@@ -24,10 +23,26 @@
     }
 }
 
+.button--main-green {
+    background-color: $color-main-green;
+    color: $color-white;
+}
+
+.button--white {
+    background-color: $color-white;
+    color: $color-main-text;
+}
+
 .flex-center {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.poster-height {
+    height: calc(100vh - 100px);
+    max-height: 1080px;
+    min-height: 600px;
 }
 
 /**
@@ -74,6 +89,7 @@
     === PROJECT COLORS ===
 */
 
+.color-white { color: $color-white; }
 .color-web-background { color: $color-web-background; } 
 .color-soft-divider { color: $color-soft-divider; } 
 .color-medium-divider { color: $color-medium-divider; } 
