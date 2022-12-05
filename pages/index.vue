@@ -46,13 +46,19 @@
                     <FlagEnergySavings />
                 </div>
             </div>
+
+            <BlockHouseGrades />
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'IndexPage'
+    name: 'IndexPage',
+    mounted() {
+        // scroll to end of page
+        window.scrollTo(0, document.body.scrollHeight);
+    }
 }
 </script>
 
