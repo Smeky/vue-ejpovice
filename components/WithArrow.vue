@@ -1,13 +1,18 @@
 <template>
     <div class="inline-flex items-center">
         <span><slot></slot></span>
-        <IconArrow color="#fff" class="ml-2" />
+        <IconArrow :color="color" class="ml-2" />
     </div>
 </template>
 
 <script>
 export default {
-
+    props: {
+        color: {
+            type: String,
+            default: '#fff'
+        }
+    }
 }
 </script>
 

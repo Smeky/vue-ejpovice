@@ -59,9 +59,17 @@ $grades-rectangle-cell-size-mobile: 167px;
 .grades-rectangle {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    border: 20px solid rgba(0, 0, 0, 0.05);
-    border-radius: calc(#{$grades-rectangle-border-radius} + 20px);
     box-sizing: content-box;
+
+    border-color: rgba(0, 0, 0, 0.05);
+    border-width: 10px;
+    border-style: solid;
+    border-radius: calc(#{$grades-rectangle-border-radius} + 10px);
+
+    @include lg() {
+        border-width: 20px;
+        border-radius: calc(#{$grades-rectangle-border-radius} + 20px);
+    }
     
     width: $grades-rectangle-size-mobile;
     height: $grades-rectangle-size-mobile;

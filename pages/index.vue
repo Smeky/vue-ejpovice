@@ -30,10 +30,10 @@
                         Ejpovice. Klidná lokalita v sousedství Plzně.
                     </h2>
                     
-                    <div class="button--rounded button--white text-lg-button">
+                    
+                    <WithArrow class="button--rounded button--white button--grow-inplace text-lg-button" color="#333">
                         <span class="uppercase">více o lokalitě</span>
-                        <IconArrow color="#333" class="ml-3" />
-                    </div>
+                    </WithArrow>
                 </div>
             </Poster>
 
@@ -47,7 +47,7 @@
                 </div>
             </div>
 
-            <BlockHouseGrades />
+            <BlockHouseGrades class="px-5" />
         </div>
     </div>
 </template>
