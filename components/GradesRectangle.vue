@@ -4,13 +4,13 @@
              class="grades-rectangle--grade-container"
              :class="grade.class"
         >
-            <div class="grades-rectangle--grade py-12">
+            <div class="grades-rectangle--grade py-8 lg:py-12">
                 <img :src="grade.icon" />
                 <span class="text-sm-title color-white">
                     {{ grade.title }}
                 </span>
                 
-                <WithArrow class="grades-rectangle--grade--more mt-4">
+                <WithArrow class="grades-rectangle--grade--more mt-3 lg:mt-4">
                     <span class="text-md-button color-white uppercase">více</span>
                 </WithArrow>
             </div>
@@ -51,21 +51,36 @@ export default {
 
 <style lang="scss">
 $grades-rectangle-border-radius: 60px;
+$grades-rectangle-size-desktop: 480px;
+$grades-rectangle-size-mobile: 334px;
+$grades-rectangle-cell-size-desktop: 240px;
+$grades-rectangle-cell-size-mobile: 167px;
 
 .grades-rectangle {
-    width: 480px;
-    height: 480px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     border: 20px solid rgba(0, 0, 0, 0.05);
     border-radius: calc(#{$grades-rectangle-border-radius} + 20px);
     box-sizing: content-box;
+    
+    width: $grades-rectangle-size-mobile;
+    height: $grades-rectangle-size-mobile;
+
+    @include lg() {
+        width: $grades-rectangle-size-desktop;
+        height: $grades-rectangle-size-desktop;
+    }
 }
 
 .grades-rectangle--grade-container {
     // Needs to be set so the grid items don't increase their height on hover
-    height: 240px;
-    width: 240px;
+    height: $grades-rectangle-cell-size-mobile;
+    width: $grades-rectangle-cell-size-mobile;
+
+    @include lg() {
+        height: $grades-rectangle-cell-size-desktop;
+        width: $grades-rectangle-cell-size-desktop;
+    }
 }
 
 .grades-rectangle--grade {
@@ -80,25 +95,44 @@ $grades-rectangle-border-radius: 60px;
         display: table;
         width: 50%;
         text-align: center;
-        margin-top: 20px;
         transition: all 0.3s ease-in-out;
+        margin-top: 10px;
+
+        @include lg() {
+            margin-top: 20px;
+        }
     }
     &:hover > span {
-        margin-top: 5px;
-        margin-bottom: 0px;
+        @include lg() {
+            margin-top: 5px;
+            margin-bottom: 0px;
+        }
     }
 
     > img {
         transition: all 0.3s ease-in-out;
+        height: 20px;
+        margin-top: -10px;
+
+        @include lg() {
+            height: 50px;
+            margin-top: 0px;
+        }
     }
     &:hover > img {
-        transform: scale(0.80);
-        margin-top: -10px;
+        @include lg() {
+            transform: scale(0.80);
+            margin-top: -10px;
+        }
     }
 
     &--more {
-        opacity: 0;
+        opacity: 1;
         transition: all 0.3s ease-in-out;
+
+        @include lg() {
+            opacity: 0;
+        }
     }
     &:hover &--more {
         opacity: 1;
