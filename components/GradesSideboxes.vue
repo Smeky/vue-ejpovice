@@ -3,6 +3,7 @@
         <SideBox v-for="sidebox in sideboxes"
                  :key="`sidebox-${sidebox.name}`"
                  position="right"
+                 :classes="sidebox.class"
                  :open="open === sidebox.name"
                  @close="$emit('close')" 
         >
@@ -34,7 +35,7 @@ export default {
                 name: 'health',
                 icon: require('~/assets/icons/grade-health.svg'),
                 title: 'zdravé bydlení',
-                class: 'grades-rectangle--grade-health',
+                class: 'grade-bg--health',
                 paragraphs: [
                     { 
                         title: 'Zdravé klima bez prachu a pilu',
@@ -49,7 +50,7 @@ export default {
                 name: 'comfort',
                 icon: require('~/assets/icons/grade-comfort.svg'),
                 title: 'vysoký komfort',
-                class: 'grades-rectangle--grade-comfort',
+                class: 'grade-bg--comfort',
                 paragraphs: [
                     { 
                         title: 'Důmyslně řešené interiéry',
@@ -64,7 +65,7 @@ export default {
                 name: 'savings',
                 icon: require('~/assets/icons/grade-savings.svg'),
                 title: 'úspora nákladů',
-                class: 'grades-rectangle--grade-savings',
+                class: 'grade-bg--savings',
                 paragraphs: [
                     { 
                         title: 'Minimální náklady na vytápění',
@@ -79,7 +80,7 @@ export default {
                 name: 'gentle',
                 icon: require('~/assets/icons/grade-gentle.svg'),
                 title: 'šetrnost stavby',
-                class: 'grades-rectangle--grade-gentle',
+                class: 'grade-bg--gentle',
                 paragraphs: [
                     { 
                         title: 'Nízká zátěž životního prostředí',
@@ -96,5 +97,16 @@ export default {
 </script>
 
 <style lang="scss">
-
+.sidebox.grade-bg--health {
+    background-color: $color-grades-a;
+}
+.sidebox.grade-bg--comfort {
+    background-color: $color-grades-b;
+}
+.sidebox.grade-bg--savings {
+    background-color: $color-grades-c;
+}
+.sidebox.grade-bg--gentle {
+    background-color: $color-grades-d;
+}
 </style>

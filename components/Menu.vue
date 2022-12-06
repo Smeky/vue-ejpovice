@@ -1,12 +1,12 @@
 <template>
     <SideBox :open="$store.state.isMenuOpen" @close="$store.dispatch('closeMenu')" position="left">
         <div class="menu">
-            <div class="flex flex-col justify-between h-full ml-10 lg:ml-20">
+            <div class="flex flex-col justify-between h-full">
                 <Loading :loading="!$store.state.navigation.length">
                     <div class="menu__items flex flex-col gap-y-8">
                             <span v-for="item in $store.state.navigation" 
-                                  :key="item.label"
-                                  class="text-web-menu color-main-text"
+                                :key="item.label"
+                                class="text-web-menu color-main-text"
                             >
                                 {{ item.label}}
                             </span>

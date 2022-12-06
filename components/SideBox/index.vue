@@ -1,20 +1,18 @@
 <template>
-    <div class="sidebox" 
-        :class="{ 
-            'open': open, 
-            'right': position === 'right', 
-            'left': position === 'left'
-        }" 
-        v-click-outside="handleClickOutside"
-    >
-        <div class="sidebox--close button" @click="$emit('close')">
-            <img src="~/assets/icons/menu-close.svg" />
+    <Teleport to="#sidebox-container">
+        <div class="sidebox"
+            :class="mergedClasses"
+            v-click-outside="handleClickOutside"
+        >
+            <div class="sidebox--close button" @click="$emit('close')">
+                <img src="~/assets/icons/menu-close.svg" />
+            </div>
+            
+            <div class="sidebox--content mt-20">
+                <slot></slot>
+            </div>
         </div>
-        
-        <div class="sidebox--content mt-20">
-            <slot></slot>
-        </div>
-    </div>
+    </Teleport>
 </template>
 
 <script>
@@ -28,10 +26,37 @@ export default {
             type: String,
             default: 'left',
         },
+        classes: {
+            type: [String, Array, Object],
+            default: '',
+        }
     },
     data: () => ({
         isClosable: false,
     }),
+    computed: {
+        mergedClasses: function() {
+            const value = this.classes
+            let classes = {}
+
+            if (typeof value === 'string') {
+                classes[value] = true
+            }
+            else if (Array.isArray(value)) {
+                value.forEach(c => classes[c] = true)
+            }
+            else {
+                classes = value
+            }
+
+            return {
+                ...classes,
+                'open': this.open,
+                'right': this.position === 'right',
+                'left': this.position === 'left',
+            }
+        }
+    },
     mounted() {
         // If the sidebox is open on mount, we need to update the root classes
         this.updateBodyClass()
@@ -74,26 +99,9 @@ export default {
 $sidebox-width-desktop: 640px;
 $sidebox-width-mobile: 100%;
 
-body.sidebox-open {
-    overflow: hidden;
-
-    @include lg() {
-        &.sidebox--left .sidebox-anchor {
-            transform: translateX($sidebox-width-desktop);
-        }
-        &.sidebox--right .sidebox-anchor {
-            transform: translateX(-$sidebox-width-desktop);
-        }
-    }
-
-    .sidebox-anchor:before {
-        opacity: 0.6;
-    }
-}
-
 .sidebox-anchor {
-    transition: all 0.3s ease-in-out;
-
+    transition: transform 0.3s ease-in-out;
+    
     &:before {
         pointer-events: none;
         content: '';
@@ -109,33 +117,77 @@ body.sidebox-open {
     }
 }
 
+body.sidebox-open {
+    
+    @include lg() {
+        &.sidebox--left .sidebox-anchor {
+            transform: translateX($sidebox-width-desktop);
+        }
+        &.sidebox--right .sidebox-anchor {
+            transform: translateX(-$sidebox-width-desktop);
+        }
+    }
+    .sidebox-anchor:before {
+        opacity: 0.6;
+    }
+}
+
 .sidebox {
     position: fixed;
     top: 0;
 
     visibility: hidden;
-    overflow: hidden;
     transition: all 0.3s ease-in-out;
     background-color: $color-web-background;
-
+    
     height: 0;
     width: $sidebox-width-mobile;
     z-index: 10;
+    padding: 30px 20px;
 
     @include lg() {
         height: 100vh;
         width: $sidebox-width-desktop;
-        z-index: 0;
-    }
+        padding: 50px 80px;
 
-    &.right {
-        right: 0;
+        &.left {
+            left: - $sidebox-width-desktop;
+        }
+        &.right {
+            right: - $sidebox-width-desktop;
+        }
     }
 
     &.open {
         visibility: visible;
         height: 100vh;
+
+        @include lg() {
+            &.left {
+                left: 0;
+            }
+            &.right {
+                right: 0;
+            }
+        }
+
+        // &:before {
+        //     opacity: 0.6;
+        // }
     }
+
+    // &:before {
+    //     pointer-events: none;
+    //     content: '';
+    //     position: absolute;
+    //     top: 0;
+    //     width: 100vw;
+    //     height: 100vh;
+    //     background-color: $color-darken-web-blue;
+    //     opacity: 0;
+    //     z-index: 20;
+    //     transition: opacity 0.3s ease-in-out;
+    // }
 }
 
 .sidebox--content {

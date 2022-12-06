@@ -44,6 +44,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '~/plugins/vue2-teleport.js',
     '~/plugins/is-mobile.js',
     '~/plugins/v-click-outside.js',
   ],

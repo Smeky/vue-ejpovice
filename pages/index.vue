@@ -1,10 +1,7 @@
 <template>
     <div class="home flex overflow-x-hidden">
         <!-- Slidebox-anchor moves the navbar as well as the block bellow when sidebox gets opened -->
-        <Navbar class="sidebox-anchor" />
-        <Menu />
-
-        <div class="sidebox-anchor">
+        <div>
             <Homescreen />
 
             <div class="my-gt mx-5 flex-center">
@@ -67,8 +64,6 @@
             </BlockCard>
 
             <BlockFreeSpaces />
-
-            <Footer />
         </div>
     </div>
 </template>
@@ -76,9 +71,10 @@
 <script>
 export default {
     name: 'IndexPage',
+    layout: 'default',
     mounted() {
         // scroll to end of page
-        window.scrollTo(0, document.body.scrollHeight);
+        // window.scrollTo(0, document.body.scrollHeight);
     }
 }
 </script>
