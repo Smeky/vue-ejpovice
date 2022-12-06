@@ -3,6 +3,7 @@
         <div v-for="(grade, index) in grades" :key="`grades-${index}`"
              class="grades-rectangle--grade-container"
              :class="grade.class"
+             @click="$emit('click', grade.name)"
         >
             <div class="grades-rectangle--grade py-8 lg:py-12">
                 <img :src="grade.icon" />
@@ -18,28 +19,30 @@
     </div>
 </template>
 
-
-
 <script>
 export default {
     data: () => ({
         grades: [
             {
+                name: 'health',
                 icon: require('~/assets/icons/grade-health.svg'),
                 title: 'zdravé bydlení',
                 class: 'grades-rectangle--grade--topleft'
             },
             {
+                name: 'comfort',
                 icon: require('~/assets/icons/grade-comfort.svg'),
                 title: 'vysoký komfort',
                 class: 'grades-rectangle--grade--topright'
             },
             {
+                name: 'savings',
                 icon: require('~/assets/icons/grade-savings.svg'),
                 title: 'úspora nákladů',
                 class: 'grades-rectangle--grade--bottomleft'
             },
             {
+                name: 'gentle',
                 icon: require('~/assets/icons/grade-gentle.svg'),
                 title: 'šetrnost stavby',
                 class: 'grades-rectangle--grade--bottomright'

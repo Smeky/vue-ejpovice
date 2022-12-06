@@ -12,13 +12,21 @@
             </WithArrow>
         </div>
 
-        <GradesRectangle class="mx-auto" />
+        <GradesRectangle @click="handleGradeClick" class="mx-auto" />
+        <GradesSideboxes :open="openedSidebox" @close="openedSidebox = null" />
     </div>
 </template>
 
 <script>
 export default {
-
+    data: () => ({
+        openedSidebox: null
+    }),
+    methods: {
+        handleGradeClick(name) {
+            this.openedSidebox = name
+        }
+    }
 }
 </script>
 
