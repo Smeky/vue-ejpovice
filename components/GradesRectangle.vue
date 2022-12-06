@@ -147,19 +147,23 @@ $grades-rectangle-cell-size-mobile: 167px;
     }
     
     &--topleft {
-        background-color: $color-support-a;
+        background-color: $color-grades-a;
+        // background-color: $color-support-a;
         border-top-left-radius: $grades-rectangle-border-radius;
     }
     &--topright {
-        background-color: $color-support-b;
+        background-color: $color-grades-b;
+        // background-color: $color-support-b;
         border-top-right-radius: $grades-rectangle-border-radius;
     }
     &--bottomleft {
-        background-color: $color-reservation;
+        background-color: $color-grades-c;
+        // background-color: $color-reservation;
         border-bottom-left-radius: $grades-rectangle-border-radius;
     }
     &--bottomright {
-        background-color: $color-cta;
+        background-color: $color-grades-d;
+        // background-color: $color-cta;
         border-bottom-right-radius: $grades-rectangle-border-radius;
     }
 }
