@@ -30,7 +30,6 @@
                         Ejpovice. Klidná lokalita v sousedství Plzně.
                     </h2>
                     
-                    
                     <WithArrow class="button--rounded button--white button--grow-inplace text-lg-button" color="#333">
                         <span class="uppercase">více o lokalitě</span>
                     </WithArrow>
@@ -48,6 +47,24 @@
             </div>
 
             <BlockHouseGrades class="px-5" />
+
+            <BlockCard class="my-gt" :image="require('~/assets/images/18775.png')">
+                <div class="flex flex-col">
+                    <h2 class="text-lg-title color-main-green">
+                        Standardy ve znamení designu a kvality.
+                    </h2>
+
+                    <p class="text-lg-paragraph my-8 lg:my-16">
+                        Prohlédněte si široký seznam vybavení, materiálů a technologií, které jsou součástí standardu každého našeho domu.
+                    </p>
+                    
+                    <div>
+                        <WithArrow class="button--rounded button--main-green button--grow-inplace text-lg-button">
+                            <span class="uppercase">více o standardech</span>
+                        </WithArrow>
+                    </div>
+                </div>
+            </BlockCard>
         </div>
     </div>
 </template>
