@@ -67,6 +67,8 @@
             </BlockCard>
 
             <BlockFreeSpaces />
+
+            <Footer />
         </div>
     </div>
 </template>
