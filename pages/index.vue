@@ -65,6 +65,8 @@
                     </div>
                 </div>
             </BlockCard>
+
+            <BlockFreeSpaces />
         </div>
     </div>
 </template>

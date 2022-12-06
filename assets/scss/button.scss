@@ -16,6 +16,30 @@
     }
 }
 
+.button--selection {
+    @include button-base();
+
+    background-color: $color-cta;
+    border-radius: 70px 0;
+    letter-spacing: 5px;
+    transition: all 0.3s ease-in-out;
+
+    // mobile
+    width: 300px;
+    height: 67px;
+
+    // desktop
+    @include lg() {
+        width: 315px;
+        height: 70px;
+
+        &:hover {
+            width: 335px;
+            transform: translateX(10px);
+        }
+    }
+}
+
 .button--main-green {
     background-color: $color-main-green;
     color: $color-white;
