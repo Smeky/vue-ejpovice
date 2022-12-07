@@ -1,5 +1,5 @@
 <template>
-    <div class="toggle" :class="{ 'toggle--active': value }" @click="$emit('click')">
+    <div class="toggle-switch" :class="{ 'toggle-switch--active': value }" @click="$emit('click')">
         
     </div>
 </template>
@@ -16,7 +16,7 @@ export default {
 </script>
 
 <style lang="scss">
-.toggle {
+.toggle-switch {
     position: relative;
     width: 48px;
     height: 26px;
@@ -38,7 +38,7 @@ export default {
     }
 }
 
-.toggle--active {
+.toggle-switch--active {
     background-color: $color-main-web-blue;
 
     &:after {

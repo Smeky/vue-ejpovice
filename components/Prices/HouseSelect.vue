@@ -5,7 +5,7 @@
 
         </div>
 
-        <div class="house-select--meta p-16">
+        <div class="house-select--meta py-16 pl-16 pr-32">
             <div class="house-select--compass mt-auto">
                 <img src="~/assets/images/fake_compass.svg" />
             </div>
