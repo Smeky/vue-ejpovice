@@ -3,16 +3,30 @@
         <SideBox v-for="sidebox in sideboxes"
                  :key="`sidebox-${sidebox.name}`"
                  position="right"
-                 :classes="sidebox.class"
+                 :classes="sidebox.sideboxClass"
                  :open="open === sidebox.name"
                  @close="$emit('close')" 
         >
+            <div class="flex items-center mb-28">
+                <img :src="sidebox.icon" />
+                <h2 class="text-lg-button uppercase ml-5">{{ sidebox.title }}</h2>
+            </div>
+
             <div v-for="(paragraph, index) in sidebox.paragraphs"
                  :key="`sidebox-${sidebox.name}-p${index}`"
-                 class="mb-16"
+                 class="mb-16 lg:mb-28"
+                 :class="sidebox.paragraphsClass"
             >
-                <h3 class="text-sm-title color-white mb-4">{{ paragraph.title }}</h3>
+                <h3 class="text-sm-title mb-4">{{ paragraph.title }}</h3>
                 <p class="text-lg-paragraph mb-16">{{ paragraph.text }}</p>
+            </div>
+
+            <div class="flex items-center">
+                <div class="button--rounded button--white">
+                    <IconArrow color="#000" />
+                </div>
+
+                <span class="text-lg-button uppercase ml-5">další: vysoký komfort</span>
             </div>
         </SideBox>
     </div>
@@ -35,7 +49,9 @@ export default {
                 name: 'health',
                 icon: require('~/assets/icons/grade-health.svg'),
                 title: 'zdravé bydlení',
-                class: 'grade-bg--health',
+                textColor: '#fff',
+                sideboxClass: 'grade-bg--health',
+                paragraphsClass: 'color-white',
                 paragraphs: [
                     { 
                         title: 'Zdravé klima bez prachu a pilu',
@@ -50,7 +66,8 @@ export default {
                 name: 'comfort',
                 icon: require('~/assets/icons/grade-comfort.svg'),
                 title: 'vysoký komfort',
-                class: 'grade-bg--comfort',
+                sideboxClass: 'grade-bg--comfort',
+                paragraphsClass: 'color-black',
                 paragraphs: [
                     { 
                         title: 'Důmyslně řešené interiéry',
@@ -65,7 +82,8 @@ export default {
                 name: 'savings',
                 icon: require('~/assets/icons/grade-savings.svg'),
                 title: 'úspora nákladů',
-                class: 'grade-bg--savings',
+                sideboxClass: 'grade-bg--savings',
+                paragraphsClass: 'color-white',
                 paragraphs: [
                     { 
                         title: 'Minimální náklady na vytápění',
@@ -80,7 +98,8 @@ export default {
                 name: 'gentle',
                 icon: require('~/assets/icons/grade-gentle.svg'),
                 title: 'šetrnost stavby',
-                class: 'grade-bg--gentle',
+                sideboxClass: 'grade-bg--gentle',
+                paragraphsClass: 'color-black',
                 paragraphs: [
                     { 
                         title: 'Nízká zátěž životního prostředí',
