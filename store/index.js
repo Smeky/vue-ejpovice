@@ -4,10 +4,15 @@ export const state = () => ({
     isMenuOpen: false,
 
     navigation: [
-        { label: 'Placeholders:', url: '' },
-        { label: 'Home', url: '' },
-        { label: 'About', url: '' },
-        { label: 'Contact', url: '' },
+        { label: 'Kontakt',      url: '/contact' },
+        { label: 'Galerie',      url: '/download' },
+        { label: 'Ke stažení',   url: '/financing' },
+        { label: 'Financování',  url: '/gallery' },
+        { label: 'Pasivní domy', url: '/index' },
+        { label: 'Standardy',    url: '/locality' },
+        { label: 'Lokalita',     url: '/passive_houses' },
+        { label: 'Ceník',        url: '/price_list' },
+        { label: 'O projektu',   url: '/standards' },
     ],
 })
 

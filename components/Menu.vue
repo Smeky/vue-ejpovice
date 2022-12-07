@@ -4,12 +4,14 @@
             <div class="flex flex-col justify-between h-full">
                 <Loading :loading="!$store.state.navigation.length">
                     <div class="menu__items flex flex-col gap-y-8">
-                            <span v-for="item in $store.state.navigation" 
+                            <NuxtLink v-for="item in $store.state.navigation" 
                                 :key="item.label"
+                                :to="item.url"
+                                @click.native="$store.dispatch('closeMenu')"
                                 class="text-web-menu color-main-text"
                             >
-                                {{ item.label}}
-                            </span>
+                                {{ item.label }}
+                            </NuxtLink>
                     </div>
                 </Loading>
 

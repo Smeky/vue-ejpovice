@@ -5,13 +5,13 @@
             <img src="~/assets/icons/burger.svg" />
             <span class="text-navbar">Menu</span>
         </div>
-        <div class="flex uppercase gap-x-4 h-fit">
+        <NuxtLink class="flex uppercase gap-x-4 h-fit" to="/">
             <img src="~/assets/icons/nav-logo.svg" />
             <div class="flex flex-col leading-none">
                 <span>domy</span>
                 <span>ejpovice II.</span>
             </div>
-        </div>
+        </NuxtLink>
 
         <div class="navbar__func flex gap-x-8 h-fit">
             <span class="whitespace-nowrap text-navbar">Vyberte si</span>
@@ -21,13 +21,13 @@
 
     <!-- Mobile navbar -->
     <div class="navbar navbar__mobile" v-else> <!-- $store.state.isMobile -->
-        <div class="flex uppercase gap-x-4 h-fit">
+        <NuxtLink class="flex uppercase gap-x-4 h-fit" to="/">
             <img src="~/assets/icons/nav-logo.svg" />
             <div class="flex flex-col leading-none">
                 <span>domy</span>
                 <span>ejpovice II.</span>
             </div>
-        </div>
+        </NuxtLink>
 
         <div @click="$store.dispatch('toggleMenu')">
             <img src="~/assets/icons/burger.svg" />
