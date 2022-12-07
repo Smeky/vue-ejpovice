@@ -109,7 +109,7 @@ $sidebox-width-mobile: 100%;
         top: 0;
         left: 0;
         width: 100%;
-        height: 100vh;
+        height: 100%;
         background-color: $color-darken-web-blue;
         opacity: 0;
         z-index: 9;
@@ -118,7 +118,8 @@ $sidebox-width-mobile: 100%;
 }
 
 body.sidebox-open {
-    
+    overflow: hidden;
+
     @include lg() {
         &.sidebox--left .sidebox-anchor {
             transform: translateX($sidebox-width-desktop);

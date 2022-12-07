@@ -10,7 +10,7 @@
             <Nuxt />
         </div>
 
-        <Footer />
+        <Footer class="sidebox-anchor" />
     </div>
 </template>
 
