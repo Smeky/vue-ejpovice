@@ -11,7 +11,7 @@ export const state = () => ({
         { label: 'Pasivní domy', url: '/index' },
         { label: 'Standardy',    url: '/locality' },
         { label: 'Lokalita',     url: '/passive_houses' },
-        { label: 'Ceník',        url: '/price_list' },
+        { label: 'Ceník',        url: '/prices' },
         { label: 'O projektu',   url: '/standards' },
     ],
 })
