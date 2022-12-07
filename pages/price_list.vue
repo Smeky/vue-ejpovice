@@ -1,6 +1,6 @@
 <template>
     <div>
-        
+        <HouseSelectMapVue />
     </div>
 </template>
 
