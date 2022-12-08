@@ -27,6 +27,8 @@
             <div class="prices-page--separator"></div>
 
             <PricesTable class="px-32 py-20" />
+
+            <BlockContact />
         </div>
     </div>
 </template>
