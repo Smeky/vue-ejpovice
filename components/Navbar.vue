@@ -63,7 +63,6 @@ export default {
     justify-content: space-between;
     align-items: center;
     color: white;
-    transition: all 0.4s ease-in-out;
 
     position: fixed;
     top: 0;

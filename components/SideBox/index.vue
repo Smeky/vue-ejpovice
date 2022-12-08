@@ -1,5 +1,6 @@
 <template>
-    <Teleport to="#sidebox-container">
+    <!-- || closing => Prevents the sidebox's content from dissapering before the animation is done -->
+    <Teleport to="#sidebox-container" v-if="open || closing">
         <div class="sidebox"
             :class="mergedClasses"
             v-click-outside="handleClickOutside"
@@ -33,6 +34,7 @@ export default {
     },
     data: () => ({
         isClosable: false,
+        closing: false,
     }),
     computed: {
         mergedClasses: function() {
@@ -57,33 +59,34 @@ export default {
             }
         }
     },
-    mounted() {
-        // If the sidebox is open on mount, we need to update the root classes
-        this.updateBodyClass()
-    },
     watch: {
-        open() {
-            this.updateBodyClass()
-            this.handleClosableState()
+        open(isOpen) {
+            if (isOpen) {
+                this.handleOpen()
+            }
+            else {
+                this.handleClose()
+            }
         },
     },
     methods: {
-        updateBodyClass() {
-            if (this.open) {
-                document.body.classList.add('sidebox-open', `sidebox--${this.position}`)
-            } else {
-                document.body.classList.remove('sidebox-open', `sidebox--${this.position}`)
-            }
+        handleOpen() {
+            this.isClosable = false // Prevents the sidebox from being closable before the animation is done
+
+            this.$nextTick(() => {
+                const tl = this.$gsap.timeline()
+                tl.to(['.sidebox-anchor', '.sidebox'], { duration: 0.3, x: this.position === 'left' ? 640 : -640 })
+                tl.to('#sidebox-overlay', { duration: 0.3, opacity: 0.6, pointerEvents: 'all' }, '<')
+                tl.eventCallback('onComplete', () => { this.isClosable = true })
+            })
         },
-        handleClosableState() {
-            if (this.open) {
-                setTimeout(() => {
-                    this.isClosable = true
-                }, 300)
-            }
-            else {
-                this.isClosable = false
-            }
+        handleClose() {
+            this.closing = true // Prevents the sidebox's content from dissapering before the animation is done
+
+            const tl = this.$gsap.timeline()
+            tl.to(['.sidebox-anchor', '.sidebox'], { duration: 0.3, x: 0 })
+            tl.to('#sidebox-overlay', { duration: 0.3, opacity: 0, pointerEvents: 'none' }, '<')
+            tl.eventCallback('onComplete', () => { this.closing = false })
         },
         handleClickOutside() {
             if (this.isClosable) {
@@ -99,10 +102,8 @@ export default {
 $sidebox-width-desktop: 640px;
 $sidebox-width-mobile: 100%;
 
-.sidebox-anchor {
-    transition: transform 0.3s ease-in-out;
-    
-    &:before {
+#__layout {
+    &:after {
         pointer-events: none;
         content: '';
         position: absolute;
@@ -112,33 +113,21 @@ $sidebox-width-mobile: 100%;
         height: 100%;
         background-color: $color-darken-web-blue;
         opacity: 0;
-        z-index: 9;
-        transition: opacity 0.3s ease-in-out;
+        // transition: opacity 0.3s ease-in-out;
     }
 }
 
-body.sidebox-open {
-    overflow: hidden;
+// body.sidebox-open {
+//     overflow: hidden;
 
-    @include lg() {
-        &.sidebox--left .sidebox-anchor {
-            transform: translateX($sidebox-width-desktop);
-        }
-        &.sidebox--right .sidebox-anchor {
-            transform: translateX(-$sidebox-width-desktop);
-        }
-    }
-    .sidebox-anchor:before {
-        opacity: 0.6;
-    }
-}
+//     // .sidebox-anchor:before {
+//     //     opacity: 0.6;
+//     // }
+// }
 
 .sidebox {
     position: fixed;
     top: 0;
-
-    visibility: hidden;
-    transition: all 0.3s ease-in-out;
     background-color: $color-web-background;
     
     height: 0;
@@ -160,17 +149,7 @@ body.sidebox-open {
     }
 
     &.open {
-        visibility: visible;
         height: 100vh;
-
-        @include lg() {
-            &.left {
-                left: 0;
-            }
-            &.right {
-                right: 0;
-            }
-        }
 
         // &:before {
         //     opacity: 0.6;
