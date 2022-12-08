@@ -9,7 +9,7 @@
                 <img src="~/assets/icons/menu-close.svg" />
             </div>
             
-            <div class="sidebox--content mt-20">
+            <div class="sidebox--content">
                 <slot></slot>
             </div>
         </div>
@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import { useTimeline } from '~/composables/useTimeline'
+
 export default {
     props: {
         open: {
@@ -59,6 +61,11 @@ export default {
             }
         }
     },
+    setup() {
+        return {
+            ...useTimeline(),
+        }
+    },
     watch: {
         open(isOpen) {
             if (isOpen) {
@@ -72,21 +79,34 @@ export default {
     methods: {
         handleOpen() {
             this.isClosable = false // Prevents the sidebox from being closable before the animation is done
+            const isMobile = this.$store.state.isMobile
 
+            // Next tick because the sidebox is not rendered yet
             this.$nextTick(() => {
-                const tl = this.$gsap.timeline()
-                tl.to(['.sidebox-anchor', '.sidebox'], { duration: 0.3, x: this.position === 'left' ? 640 : -640 })
-                tl.to('#sidebox-overlay', { duration: 0.3, opacity: 0.6, pointerEvents: 'all' }, '<')
-                tl.eventCallback('onComplete', () => { this.isClosable = true })
+                if (isMobile) {
+                    this.timeline.to('.sidebox', { duration: 0.3, height: '100%' })
+                }
+                else {
+                    this.timeline.to(['.sidebox-anchor', '.sidebox'], { duration: 0.3, x: this.position === 'left' ? 640 : -640 })
+                    this.timeline.to('#sidebox-overlay', { duration: 0.3, opacity: 0.6, pointerEvents: 'all' }, '<')
+                }
+
+                this.timeline.eventCallback('onComplete', () => { this.isClosable = true })
             })
         },
         handleClose() {
             this.closing = true // Prevents the sidebox's content from dissapering before the animation is done
+            const isMobile = this.$store.state.isMobile
 
-            const tl = this.$gsap.timeline()
-            tl.to(['.sidebox-anchor', '.sidebox'], { duration: 0.3, x: 0 })
-            tl.to('#sidebox-overlay', { duration: 0.3, opacity: 0, pointerEvents: 'none' }, '<')
-            tl.eventCallback('onComplete', () => { this.closing = false })
+            if (isMobile) {
+                this.timeline.to('.sidebox', { duration: 0.3, height: '0%' })
+            }
+            else {
+                this.timeline.to(['.sidebox-anchor', '.sidebox'], { duration: 0.3, x: 0 })
+                this.timeline.to('#sidebox-overlay', { duration: 0.3, opacity: 0, pointerEvents: 'none' }, '<')
+            }
+
+            this.timeline.eventCallback('onComplete', () => { this.closing = false })
         },
         handleClickOutside() {
             if (this.isClosable) {
@@ -102,43 +122,18 @@ export default {
 $sidebox-width-desktop: 640px;
 $sidebox-width-mobile: 100%;
 
-#__layout {
-    &:after {
-        pointer-events: none;
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: $color-darken-web-blue;
-        opacity: 0;
-        // transition: opacity 0.3s ease-in-out;
-    }
-}
-
-// body.sidebox-open {
-//     overflow: hidden;
-
-//     // .sidebox-anchor:before {
-//     //     opacity: 0.6;
-//     // }
-// }
-
 .sidebox {
     position: fixed;
     top: 0;
     background-color: $color-web-background;
-    
+    overflow: hidden;
     height: 0;
     width: $sidebox-width-mobile;
     z-index: 10;
-    padding: 30px 20px;
 
     @include lg() {
         height: 100vh;
         width: $sidebox-width-desktop;
-        padding: 50px 80px;
 
         &.left {
             left: - $sidebox-width-desktop;
@@ -147,33 +142,16 @@ $sidebox-width-mobile: 100%;
             right: - $sidebox-width-desktop;
         }
     }
-
-    &.open {
-        height: 100vh;
-
-        // &:before {
-        //     opacity: 0.6;
-        // }
-    }
-
-    // &:before {
-    //     pointer-events: none;
-    //     content: '';
-    //     position: absolute;
-    //     top: 0;
-    //     width: 100vw;
-    //     height: 100vh;
-    //     background-color: $color-darken-web-blue;
-    //     opacity: 0;
-    //     z-index: 20;
-    //     transition: opacity 0.3s ease-in-out;
-    // }
 }
 
 .sidebox--content {
     position: relative;
-    transition: transform 0.3s ease-in-out;
     width: 100%;
+    margin: 60px 20px;
+
+    @include lg() {
+        margin: 100px 80px;
+    }
 }
 
 .sidebox--close {
