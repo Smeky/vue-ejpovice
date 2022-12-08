@@ -1,5 +1,5 @@
 <template>
-    <div class="button--selection grid place-items-center">
+    <div class="button--leaf grid place-items-center">
         <span class="font-medium text-black uppercase text-gt-button">vyberte si</span>
     </div>
 </template>

@@ -21,9 +21,9 @@
             
             <span class="text-tn-paragraph mb-sm">Provoz linky: Nonstop 24/7</span>
 
-            <ButtonSelection>
+            <ButtonLeaf>
                 <span>napište nám</span>
-            </ButtonSelection>
+            </ButtonLeaf>
 
             <template v-if="$store.state.isMobile">
                 <img class="mt-10" src="~/assets/images/logo_OK.svg" />

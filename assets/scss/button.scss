@@ -16,7 +16,7 @@
     }
 }
 
-.button--selection {
+.button--leaf {
     @include button-base();
 
     background-color: $color-cta;

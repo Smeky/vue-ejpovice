@@ -6,7 +6,7 @@
 
         <div class="free-spaces--content">
             <h2 class="text-cta-title color-white">26 volných</h2>
-            <ButtonSelection />
+            <ButtonLeaf />
         </div>
     </div>
 </template>
