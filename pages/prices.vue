@@ -1,15 +1,16 @@
 <template>
     <div class="prices-page">
-        <PricesHouseSelect />
+        <PricesHouseSelect v-if="!$store.state.isMobile" />
+        <img v-else src="~/assets/images/Ejpovice_0006_v25.png" class="object-cover w-full" />
 
         <div class="flex flex-col">
-            <div class="flex flex-col pt-20 pb-10 px-32">
-                <h2 class="text-md-title text-center mb-12">Ceník nemovitostí</h2>
+            <div class="flex flex-col mx-5 my-10 lg:pt-20 lg:pb-10 lg:px-32">
+                <h2 class="text-md-title text-center mb-6 lg:mb-12">Ceník nemovitostí</h2>
 
                 <div class="prices-page--table-controls">
-                    <div class="flex">
+                    <div class="flex" v-if="!$store.state.isMobile">
                         <ToggleSwitch :value="filterFree" @click="filterFree = !filterFree" />
-                        <span class="ml-3">Zobrazit jen volné</span>
+                        <span class="text-sm-ui-desc leading-loose ml-3">Zobrazit jen volné</span>
                     </div>
                     
                     <ToggleButton 
@@ -17,7 +18,7 @@
                         :selected="selectedFilter" 
                         @click="handleFilterClick" />
 
-                    <div class="button--rounded button--white flex whitespace-nowrap">
+                    <div class="button--rounded button--white flex whitespace-nowrap" v-if="!$store.state.isMobile">
                         <img class="mr-3" width="20" height="20" src="~/assets/icons/cube.svg" />
                         <span class="text-md-button">Vybrat z mapy projektu</span>    
                     </div>
@@ -26,7 +27,8 @@
 
             <div class="prices-page--separator"></div>
 
-            <PricesTable class="px-32 py-20" />
+            <PricesTableMobile v-if="$store.state.isMobile" :items="tableItems" />
+            <PricesTableDesktop v-else class="px-32 py-20" :items="tableItems" />
 
             <BlockContact />
         </div>
@@ -38,7 +40,23 @@ export default {
     data: () => ({
         filterFree: false,
         filterItems: ['Všechny', 'Jen Domy', 'Jen pozemky'],
-        selectedFilter: 'Všechny'
+        selectedFilter: 'Všechny',
+        tableItems: [
+            { number: 'E1', offer_type: 'Pozemek', house_type: 'Bungalov + patro', disposition: '5+kk', use_area: '127', area: '500', price: 4990000, state: 'free' },
+            { number: 'E2', offer_type: 'Pozemek', house_type: 'Bungalov + patro', disposition: '5+kk', use_area: '127', area: '500', price: 4990000, state: 'sold' },
+            { number: 'E3', offer_type: 'Pozemek', house_type: 'Bungalov + patro', disposition: '5+kk', use_area: '127', area: '500', price: 4990000, state: 'free' },
+            { number: 'E4', offer_type: 'Pozemek', house_type: 'Bungalov + patro', disposition: '5+kk', use_area: '127', area: '500', price: 4990000, state: 'free' },
+            { number: 'E5', offer_type: 'Pozemek', house_type: 'Bungalov + patro', disposition: '5+kk', use_area: '127', area: '500', price: 4990000, state: 'free' },
+            { number: 'E6', offer_type: 'Pozemek', house_type: 'Bungalov + patro', disposition: '5+kk', use_area: '127', area: '500', price: 4990000, state: 'reservation' },
+            { number: 'E7', offer_type: 'Pozemek', house_type: 'Bungalov + patro', disposition: '5+kk', use_area: '127', area: '500', price: 4990000, state: 'free' },
+            { number: 'E8', offer_type: 'Pozemek', house_type: 'Bungalov + patro', disposition: '5+kk', use_area: '127', area: '500', price: 4990000, state: 'free' },
+            { number: 'E9', offer_type: 'Pozemek', house_type: 'Bungalov + patro', disposition: '5+kk', use_area: '127', area: '500', price: 4990000, state: 'sold' },
+            { number: 'E10', offer_type: 'Pozemek', house_type: 'Bungalov + patro', disposition: '5+kk', use_area: '127', area: '500', price: 4990000, state: 'sold' },
+            { number: 'E11', offer_type: 'Pozemek', house_type: 'Bungalov + patro', disposition: '5+kk', use_area: '127', area: '500', price: 4990000, state: 'free' },
+            { number: 'E12', offer_type: 'Pozemek', house_type: 'Bungalov + patro', disposition: '5+kk', use_area: '127', area: '500', price: 4990000, state: 'reservation' },
+            { number: 'E13', offer_type: 'Pozemek', house_type: 'Bungalov + patro', disposition: '5+kk', use_area: '127', area: '500', price: 4990000, state: 'reservation' },
+            { number: 'E14', offer_type: 'Pozemek', house_type: 'Bungalov + patro', disposition: '5+kk', use_area: '127', area: '500', price: 4990000, state: 'free' },
+        ]
     }),
     mounted() {
         window.scrollTo(0, document.body.scrollHeight);
@@ -57,20 +75,21 @@ export default {
 }
 
 .prices-page--separator {
-    // content: '';
-    // display: block;
-    width: 100%;
-    height: 1px;
-    // position: absolute;
-    // bottom: -20%;
-    // left: 0;
-    background-color: rgba($color-main-text, 0.2);
+    @include lg() {
+        width: 100%;
+        height: 1px;
+        background-color: rgba($color-main-text, 0.2);
+    }
 }
 
 .prices-page--table-controls {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: center;
+
+    @include lg() {
+        justify-content: space-between;
+    }
 
     // Todo: move this into a component
     .button--rounded {
