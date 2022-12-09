@@ -1,7 +1,7 @@
 <template>
     <!-- Desktop navbar -->
-    <div id="navbar" class="navbar" v-if="!$store.state.isMobile" :class="{ 'navbar__scrolled': isScrolled }">
-        <div class="navbar__func flex gap-x-4 h-fit" @click="$store.dispatch('toggleMenu')">
+    <div id="navbar" class="navbar" v-if="!$store.state.isMobile">
+        <div class="navbar--func flex gap-x-4 h-fit" @click="$store.dispatch('toggleMenu')">
             <img src="~/assets/icons/burger.svg" />
             <span class="text-navbar">Menu</span>
         </div>
@@ -13,14 +13,14 @@
             </div>
         </NuxtLink>
 
-        <div class="navbar__func flex gap-x-8 h-fit">
+        <div class="navbar--func flex gap-x-8 h-fit">
             <span class="whitespace-nowrap text-navbar">Vyberte si</span>
             <img src="~/assets/icons/nav-home.svg" />
         </div>
     </div>
 
     <!-- Mobile navbar -->
-    <div class="navbar navbar__mobile" v-else> <!-- $store.state.isMobile -->
+    <div class="navbar navbar--mobile" v-else> <!-- $store.state.isMobile -->
         <NuxtLink class="flex uppercase gap-x-4 h-fit" to="/">
             <img src="~/assets/icons/nav-logo.svg" />
             <div class="flex flex-col leading-none">
@@ -36,12 +36,15 @@
 </template>
 
 <script>
+import { useTimeline } from "~/composables/useTimeline"
+
 export default {
-    data: () => {
-        return {
-            isScrolled: false,
-        }
+    setup() {
+        return { ...useTimeline() }
     },
+    data: () => ({
+        isScrolled: false,
+    }),
     mounted() {
         // If we scroll down, navbar should change class
         window.addEventListener("scroll", this.handleScroll)
@@ -51,7 +54,20 @@ export default {
     },
     methods: {
         handleScroll() {
-            this.isScrolled = window.scrollY > 0
+            if (this.$store.state.isMobile)
+                return
+
+            const prev = this.isScrolled
+            this.isScrolled = window.scrollY > 75
+
+            if (prev === this.isScrolled)
+                return
+
+            this.timeline.to('#navbar', {
+                duration: 0.3,
+                backgroundColor: this.isScrolled ? "#12465C" : "transparent",
+                height: this.isScrolled ? "70px" : "150px",
+            })
         }
     }
 }
@@ -73,20 +89,14 @@ export default {
     width: 100vw;
     padding: 0 60px;
 
-    @include lg() {
-        &__scrolled {
-            background-color: #12465C;
-            height: 70px;
-        }
-    }
 
-    &__mobile {
+    &--mobile {
         height: 70px;
         padding: 0 20px;
         background-color: #12465C;
     }
 
-    &__func {
+    &--func {
         cursor: pointer;
         user-select: none;
 

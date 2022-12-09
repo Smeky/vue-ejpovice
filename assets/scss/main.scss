@@ -18,9 +18,13 @@ body {
 }
 
 .poster-height {
-    height: calc(100vh - 100px);
-    max-height: 1080px;
+    max-height: max(1080px, calc(100vh - 100px));
     min-height: 600px;
+
+    // Hack to ensure poster content doesn't overflow on mobile
+    @include lg() {
+        height: calc(100vh - 100px);
+    }
 }
 
 /**
