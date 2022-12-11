@@ -18,9 +18,10 @@
                     </span>
                 </div>
                 <span class="text-md-title color-white mb-8">volných</span>
-                <div class="button--rounded button--white">
-                    <span class="text-ptable-desc uppercase">vybrat z tabulky</span>
-                </div>
+
+                <ButtonRounded class="button--white">
+                    <span class="text-md-button uppercase">vybrat z tabulky</span>
+                </ButtonRounded>
             </div>
         </div>
     </div>

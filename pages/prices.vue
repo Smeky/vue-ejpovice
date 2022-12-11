@@ -18,10 +18,18 @@
                         :selected="selectedFilter" 
                         @click="handleFilterClick" />
 
-                    <div class="button--rounded button--white flex whitespace-nowrap" v-if="!$store.state.isMobile">
+                    <ButtonRounded outline class="button--white">
+                        <template v-slot:icon>
+                            <img width="20" height="20" src="~/assets/icons/cube.svg" />
+                        </template>
+
+                        Vybrat z mapy projektu
+                    </ButtonRounded>
+                    
+                    <!-- <div class="button--rounded button--white flex whitespace-nowrap" v-if="!$store.state.isMobile">
                         <img class="mr-3" width="20" height="20" src="~/assets/icons/cube.svg" />
                         <span class="text-md-button">Vybrat z mapy projektu</span>    
-                    </div>
+                    </div> -->
                 </div>
             </div>
 

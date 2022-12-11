@@ -1,10 +1,8 @@
 <template>
     <div class="button-leaf" :class="{ 'button-leaf--dark': dark }">
-        <slot v-if="isSlotWrapped"></slot>
-
-        <span v-else class="font-medium uppercase text-gt-button">
+        <ButtonContent class="font-medium uppercase text-gt-button">
             <slot></slot>
-        </span>
+        </ButtonContent>
     </div>
 </template>
 
@@ -15,12 +13,6 @@ export default {
             type: Boolean,
             default: false
         }
-    },
-    computed: {
-        // Check if button's text is wrapped in an element (e.g. <span>)
-        isSlotWrapped() {
-            return this.$slots.default && !!this.$slots.default[0].tag
-        }
     }
 }
 </script>
@@ -30,31 +22,42 @@ export default {
     @include button-base();
 
     display: flex;
-    justify-content: center;
-    align-items: center;
-
-    background-color: $color-cta;
     color: $color-black;
-    border-radius: 70px 0;
     letter-spacing: 5px;
-    transition: all 0.3s ease-in-out;
-
+    
+    position: relative;
     width: 300px;
     height: 67px;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 70px 0;
+        background-color: $color-cta;
+        transition: all 0.3s ease-in-out;
+    }    
 
     @include lg() {
         width: 315px;
         height: 70px;
 
         &:hover {
-            width: 335px;
-            transform: translateX(10px);
+            &:before {
+                transform: scaleX(1.1);
+            }
         }
     }
 }
 
 .button-leaf--dark {
-    background-color: $color-main-text;
     color: $color-white;
+
+    &:before {
+        background-color: $color-main-text;
+    }
 }
 </style>
