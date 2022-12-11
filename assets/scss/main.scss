@@ -133,8 +133,8 @@ body {
 
 // Data Table
 
-.text-dtable-desc  { @include text-definition(Roboto, 13px, 12px); }
-.text-dtable-value { @include text-definition(Roboto, 14px, 13px, 500); }
+.text-dtable-desc  { @include text-definition(Roboto, 12px, 13px); }
+.text-dtable-value { @include text-definition(Roboto, 13px, 14px, 500); }
 
 // Button
 

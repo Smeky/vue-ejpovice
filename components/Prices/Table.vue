@@ -13,6 +13,7 @@
         <div v-for="item in data"
             :key="`table-${item.number}`"
             class="price-list-table--row text-ptable-value"
+            @click="$emit('click', item)"
         >
             <span class="text-md-title">{{ item.number }}</span>
             <span>{{ item.offer_type }}</span>
@@ -31,6 +32,7 @@
 
 <script>
 export default {
+    emits: ['click'],
     data: () => ({
         // Placeholder data
         data: [
@@ -82,6 +84,7 @@ export default {
     position: relative;
     border-top: 1px solid #dbe3e7;
     padding: 12px 0;
+    cursor: pointer;
 
     span {
         margin: auto 0;

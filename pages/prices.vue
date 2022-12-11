@@ -26,8 +26,10 @@
 
             <div class="prices-page--separator"></div>
 
-            <PricesTable class="px-32 py-20" />
+            <PricesTable @click="handleDetailClick" class="px-32 py-20" />
         </div>
+
+        <PricesDetail :open="!!selectedDetail" :data="selectedDetail" />
     </div>
 </template>
 
@@ -36,7 +38,8 @@ export default {
     data: () => ({
         filterFree: false,
         filterItems: ['Všechny', 'Jen Domy', 'Jen pozemky'],
-        selectedFilter: 'Všechny'
+        selectedFilter: 'Všechny',
+        selectedDetail: null,
     }),
     mounted() {
         window.scrollTo(0, document.body.scrollHeight);
@@ -44,6 +47,9 @@ export default {
     methods: {
         handleFilterClick(item) {
             this.selectedFilter = item
+        },
+        handleDetailClick(item) {
+            this.selectedDetail = item
         }
     }
 }
