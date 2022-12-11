@@ -43,7 +43,7 @@
                 </div>
 
                 <div class="inline-flex justify-center w-full">
-                    <div class="button--rounded button--white">
+                    <div class="button--rounded button--white" @click="$emit('click', item)">
                         <span class="text-md-button uppercase">detail nemovitosti</span>
                     </div>
                 </div>
@@ -54,6 +54,7 @@
 
 <script>
 export default {
+    emits: ['click'],
     props: {
         items: {
             type: Array,

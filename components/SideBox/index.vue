@@ -158,6 +158,7 @@ $sidebox-width-mobile: 100%;
     position: absolute;
     top: 0;
     right: 0;
+    z-index: 1;
     
     display: flex;
     margin-top: 16px;

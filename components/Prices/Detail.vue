@@ -1,10 +1,10 @@
 <template>
-    <SideBox :open="open" position="right">
+    <SideBox :open="open" position="right" @close="$emit('close')">
         <div v-if="open" class="prices-detail">
-            <h2>{{ data.offer_type }} {{ data.number }}</h2>
+            <h3 class="text-lg-title">{{ data.offer_type }} {{ data.number }}</h3>
             <PricesStateFlag :state="data.state" />
 
-            <img />
+            <PlaceholderImage class="my-16" width="520" height="180" />
 
             <div class="prices-detail--table-emphasized">
                 <div class="flex flex-col">
@@ -21,7 +21,7 @@
                 </div>
             </div>
 
-            <div class="prices-detail--table">
+            <div class="prices-detail--table mt-16">
                 <div class="prices-detail--table--row">
                     <span class="uppercase text-dtable-desc">číslo</span>
                     <span class="text-dtable-value">{{ data.number }}</span>
@@ -47,6 +47,27 @@
                     <span class="text-dtable-value">{{ data.price }}</span>
                 </div>
             </div>
+
+            <div class="prices-detail--divider my-16"></div>
+
+            <h3 class="text-lg-title">Půdorisy</h3>
+            <!-- Todo <ToggleButtonGroup /> -->
+
+            <PlaceholderImage class="my-16" width="380" height="640" />
+
+            <div class="prices-detail--table">
+                <div v-for="item in mock.pudorysy"
+                    :key="`pdetail-${item.id}`"
+                >
+                    <div class="prices-detail--table--row">
+                        <span class="uppercase text-dtable-desc">{{ item.id }}</span>
+                        <span class="uppercase text-dtable-desc">{{ item.label }}</span>
+                        <span class="text-dtable-value">{{ item.value }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="prices-detail--divider my-16"></div>
         </div>
     </SideBox>
 </template>
@@ -62,7 +83,21 @@ export default {
             type: Object,
             default: () => ({}),
         }
-    }
+    },
+    data: () => ({
+        mock: {
+            pudorysy: [
+                { id: '1.1.01', label: 'zádveří', value: 3.98 },
+                { id: '1.1.02', label: 'šatna', value: 2.44 },
+                { id: '1.1.03', label: 'zádveří', value: 3.98 },
+                { id: '1.1.04', label: 'šatna', value: 2.44 },
+                { id: '1.1.05', label: 'zádveří', value: 3.98 },
+                { id: '1.1.06', label: 'šatna', value: 2.44 },
+                { id: '1.1.07', label: 'zádveří', value: 3.98 },
+                { id: '1.1.08', label: 'šatna', value: 2.44 },
+            ]
+        }
+    }),
 }
 </script>
 
@@ -71,8 +106,13 @@ export default {
     
 }
 
+.prices-detail--divider {
+    border-bottom: 5px solid $color-medium-divider;
+}
+
 .prices-detail--table-emphasized {
     display: flex;
+    justify-content: space-between;
 }
 
 .prices-detail--table {

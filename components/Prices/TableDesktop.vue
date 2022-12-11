@@ -13,6 +13,7 @@
         <div v-for="item in items"
             :key="`table-desk-${item.number}`"
             class="prices-table-desktop--row text-ptable-value"
+            @click="$emit('click', item)"
         >
             <span class="text-md-title">{{ item.number }}</span>
             <span>{{ item.offer_type }}</span>
@@ -31,6 +32,7 @@
 
 <script>
 export default {
+    emits: ['click'],
     props: {
         items: {
             type: Array,
@@ -70,6 +72,7 @@ export default {
     position: relative;
     border-top: 1px solid #dbe3e7;
     padding: 12px 0;
+    cursor: pointer;
 
     span {
         margin: auto 0;

@@ -27,13 +27,13 @@
 
             <div class="prices-page--separator"></div>
 
-            <PricesTableMobile v-if="$store.state.isMobile" :items="tableItems" />
-            <PricesTableDesktop v-else class="px-32 py-20" :items="tableItems" />
+            <PricesTableMobile v-if="$store.state.isMobile" :items="tableItems" @click="handleDetailClick" />
+            <PricesTableDesktop v-else class="px-32 py-20" :items="tableItems" @click="handleDetailClick" />
 
             <BlockContact />
         </div>
 
-        <PricesDetail :open="!!selectedDetail" :data="selectedDetail" />
+        <PricesDetail :open="!!selectedDetail" :data="selectedDetail" @close="selectedDetail = null" />
     </div>
 </template>
 
@@ -43,6 +43,7 @@ export default {
         filterFree: false,
         filterItems: ['Všechny', 'Jen Domy', 'Jen pozemky'],
         selectedFilter: 'Všechny',
+        selectedDetail: null,
         tableItems: [
             { number: 'E1', offer_type: 'Pozemek', house_type: 'Bungalov + patro', disposition: '5+kk', use_area: '127', area: '500', price: 4990000, state: 'free' },
             { number: 'E2', offer_type: 'Pozemek', house_type: 'Bungalov + patro', disposition: '5+kk', use_area: '127', area: '500', price: 4990000, state: 'sold' },
