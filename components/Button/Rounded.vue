@@ -5,7 +5,11 @@
         }"
     >
         
-        <ButtonContent class="text-md-button uppercase font-medium">
+        <ButtonContent class="uppercase font-medium" :class="{
+                'text-md-button': !large,
+                'text-lg-button': large,
+            }"
+        >
             <div v-if="iconPosition === 'left'" class="mr-2">
                 <slot name="icon"></slot>
             </div>
@@ -88,6 +92,14 @@ $button-rounded-height-large: 50px;
     
         &:before {
             background-color: $color-white;
+        }
+    }
+
+    &.button--green {
+        color: $color-white;
+    
+        &:before {    
+            background-color: $color-main-green;
         }
     }
 }

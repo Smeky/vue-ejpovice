@@ -14,8 +14,14 @@
                         Projekt Domy Ejpovice nabízí k prodeji elegantní pasivní domy s prostornou zahradou, terasou i vlastním parkováním, situovaných v atraktivní lokalitě Plzeň - Ejpovice. Domy ztělesňují nový koncept moderního bydlení, v jehož rámci je kladen důraz na vytvoření komfortního domova v klidném přírodním prostředí a také energetickou soběstačnost. Projekt je výsledkem již úspěšně dokončené I. etapy.
                     </p>
                     
+                    <ButtonRounded large iconPosition="right" class="button--green">
+                        více o projektu
+                        <template v-slot:icon>
+                            <IconArrow color="#fff" />
+                        </template>
+                    </ButtonRounded>
+
                     <div class="button--rounded button--main-green text-lg-button">
-                        <span class="uppercase">více o projektu</span>
                         <IconArrow color="#fff" class="ml-3" />
                     </div>
                 </div>
@@ -27,9 +33,12 @@
                         Ejpovice. Klidná lokalita v sousedství Plzně.
                     </h2>
                     
-                    <WithArrow class="button--rounded button--white button--grow-inplace text-lg-button" color="#333">
-                        <span class="uppercase">více o lokalitě</span>
-                    </WithArrow>
+                    <ButtonRounded large iconPosition="right" class="button--white">
+                        <span>více o lokalitě</span>
+                        <template v-slot:icon>
+                            <IconArrow color="#333" />
+                        </template>
+                    </ButtonRounded>
                 </div>
             </Poster>
 
@@ -56,9 +65,14 @@
                     </p>
                     
                     <div>
-                        <WithArrow class="button--rounded button--main-green button--grow-inplace text-lg-button">
-                            <span class="uppercase">více o standardech</span>
-                        </WithArrow>
+                    
+                        <ButtonRounded large iconPosition="right" class="button--green">
+                            více o standardech
+
+                            <template v-slot:icon>
+                                <IconArrow color="#fff" />
+                            </template>
+                        </ButtonRounded>
                     </div>
                 </div>
             </BlockCard>

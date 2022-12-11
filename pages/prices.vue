@@ -25,11 +25,6 @@
 
                         Vybrat z mapy projektu
                     </ButtonRounded>
-                    
-                    <!-- <div class="button--rounded button--white flex whitespace-nowrap" v-if="!$store.state.isMobile">
-                        <img class="mr-3" width="20" height="20" src="~/assets/icons/cube.svg" />
-                        <span class="text-md-button">Vybrat z mapy projektu</span>    
-                    </div> -->
                 </div>
             </div>
 
