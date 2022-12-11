@@ -18,9 +18,13 @@ body {
 }
 
 .poster-height {
-    height: calc(100vh - 100px);
-    max-height: 1080px;
+    max-height: max(1080px, calc(100vh - 100px));
     min-height: 600px;
+
+    // Hack to ensure poster content doesn't overflow on mobile
+    @include lg() {
+        height: calc(100vh - 100px);
+    }
 }
 
 /**
@@ -129,8 +133,8 @@ body {
 
 // Data Table
 
-.text-dtable-desc  { @include text-definition(Roboto, 13px, 12px); }
-.text-dtable-value { @include text-definition(Roboto, 14px, 13px, 500); }
+.text-dtable-desc  { @include text-definition(Roboto, 12px, 13px); }
+.text-dtable-value { @include text-definition(Roboto, 13px, 14px, 500); }
 
 // Button
 

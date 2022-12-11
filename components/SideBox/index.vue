@@ -147,10 +147,10 @@ $sidebox-width-mobile: 100%;
 .sidebox--content {
     position: relative;
     width: 100%;
-    margin: 60px 20px;
+    padding: 60px 20px;
 
     @include lg() {
-        margin: 100px 80px;
+        padding: 100px 80px;
     }
 }
 

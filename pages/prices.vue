@@ -32,6 +32,8 @@
 
             <BlockContact />
         </div>
+
+        <PricesDetail :open="!!selectedDetail" :data="selectedDetail" />
     </div>
 </template>
 
@@ -64,6 +66,9 @@ export default {
     methods: {
         handleFilterClick(item) {
             this.selectedFilter = item
+        },
+        handleDetailClick(item) {
+            this.selectedDetail = item
         }
     }
 }

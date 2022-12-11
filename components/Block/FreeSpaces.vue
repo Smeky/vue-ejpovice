@@ -35,6 +35,7 @@ export default {
 }
 
 .free-spaces--image {
+    position: absolute;
     width: 100%;
     height: 100%;
     background-color: $color-gradient-green;
