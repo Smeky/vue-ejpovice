@@ -20,8 +20,9 @@
                 <div class="flex flex-col items-end justify-end gap-y-4 w-fit">
                     <span class="leading-none text-sm-num mb-1">/ 32</span>
                     <span class="leading-none -mt-5 text-lg-num">26</span>
-                    <div class="homescreen-select-btn grid place-items-center">
-                        <span class="font-medium text-black uppercase text-gt-button">vyberte si</span>
+                    
+                    <div>
+                        <ButtonLeaf>vyberte si</ButtonLeaf>
                     </div>
                 </div>
             </div>
@@ -74,30 +75,6 @@ export default {
             
             > div {
                 transform: scale(1.25);
-            }
-        }
-    }
-
-    .homescreen-select-btn {
-        cursor: pointer;
-        user-select: none;
-        background-color: #B0AA5A;
-        border-radius: 70px 0;
-        letter-spacing: 5px;
-        transition: all 0.3s ease-in-out;
-    
-        // mobile
-        width: 300px;
-        height: 67px;
-
-        // desktop
-        @include lg() {
-            width: 315px;
-            height: 70px;
-
-            &:hover {
-                width: 335px;
-                transform: translateX(10px);
             }
         }
     }

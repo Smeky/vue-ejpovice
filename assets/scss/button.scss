@@ -1,4 +1,6 @@
 
+// Todo: remove this file and move everything into button components
+
 .button {
     @include button-base();
 }
@@ -13,30 +15,6 @@
 
     &:hover {
         padding: 16px 30px;
-    }
-}
-
-.button--leaf {
-    @include button-base();
-
-    background-color: $color-cta;
-    border-radius: 70px 0;
-    letter-spacing: 5px;
-    transition: all 0.3s ease-in-out;
-
-    // mobile
-    width: 300px;
-    height: 67px;
-
-    // desktop
-    @include lg() {
-        width: 315px;
-        height: 70px;
-
-        &:hover {
-            width: 335px;
-            transform: translateX(10px);
-        }
     }
 }
 
