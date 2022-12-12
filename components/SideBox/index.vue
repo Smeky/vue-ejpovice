@@ -123,6 +123,10 @@ export default {
 <style lang="scss">
 $sidebox-width-desktop: 640px;
 $sidebox-width-mobile: 100%;
+$sidebox-padding-x-mobile: 20px;
+$sidebox-padding-x-desktop: 80px;
+$sidebox-padding-y-mobile: 60px;
+$sidebox-padding-y-desktop: 100px;
 
 .sidebox {
     position: fixed;
@@ -149,10 +153,10 @@ $sidebox-width-mobile: 100%;
 .sidebox--content {
     position: relative;
     width: 100%;
-    padding: 60px 20px;
+    padding: $sidebox-padding-y-mobile $sidebox-padding-x-mobile;
 
     @include lg() {
-        padding: 100px 80px;
+        padding: $sidebox-padding-y-desktop $sidebox-padding-x-desktop;
     }
 }
 
@@ -190,6 +194,16 @@ $sidebox-width-mobile: 100%;
         > img {
             transform: scale(0.7)
         }
+    }
+}
+
+.sidebox--divider {
+    width: calc(100% + #{$sidebox-padding-x-mobile * 2});
+    margin-left: -#{$sidebox-padding-x-mobile};
+
+    @include lg() {
+        width: calc(100% + #{$sidebox-padding-x-desktop * 2});
+        margin-left: -#{$sidebox-padding-x-desktop};
     }
 }
 

@@ -1,8 +1,10 @@
 <template>
-    <div class="button-rounded" :class="{
+    <div class="button-rounded" 
+        :class="{
             'button-rounded--large': large,
             'button-rounded--outline': outline
         }"
+        @click="$emit('click')"
     >
         
         <ButtonContent class="uppercase font-medium" :class="{
@@ -25,6 +27,7 @@
 
 <script>
 export default {
+    emits: ['click'],
     props: {
         large: {
             type: Boolean,

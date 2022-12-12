@@ -4,6 +4,8 @@
             <h3 class="text-lg-title">{{ data.offer_type }} {{ data.number }}</h3>
             <PricesStateFlag :state="data.state" />
 
+            <ContactForm />
+
             <PlaceholderImage class="my-16" width="520" height="180" />
 
             <div class="prices-detail--table-emphasized">
@@ -48,12 +50,14 @@
                 </div>
             </div>
 
-            <div class="prices-detail--divider my-16"></div>
+            <SideBoxDivider class="my-16" />
 
-            <h3 class="text-lg-title">Půdorisy</h3>
+            <h3 class="text-lg-title">Půdorysy</h3>
             <!-- Todo <ToggleButtonGroup /> -->
 
-            <PlaceholderImage class="my-16" width="380" height="640" />
+            <div class="flex justify-center">
+                <PlaceholderImage class="my-16" width="380" height="640" />
+            </div>
 
             <div class="prices-detail--table">
                 <div v-for="item in mock.pudorysy"
@@ -67,7 +71,13 @@
                 </div>
             </div>
 
-            <div class="prices-detail--divider my-16"></div>
+            <SideBoxDivider class="my-16" />
+
+            <h3 class="text-lg-title mb-20">Umístění pozemku</h3>
+
+            <PlaceholderImage class="mb-16" width="520" height="400" />
+
+            <SideBoxDivider />
         </div>
     </SideBox>
 </template>
@@ -106,7 +116,7 @@ export default {
     
 }
 
-.prices-detail--divider {
+.prices-detail .sidebox--divider {
     border-bottom: 5px solid $color-medium-divider;
 }
 
