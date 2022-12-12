@@ -13,6 +13,7 @@
     justify-content: center;
     align-items: center;
     color: $color-white;
+    z-index: 1; // to be above the :before element
 
     width: 220px;
     height: 68px;

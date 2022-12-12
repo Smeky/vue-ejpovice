@@ -9,7 +9,7 @@
                 <img src="~/assets/icons/menu-close.svg" />
             </div>
             
-            <div class="sidebox--content">
+            <div class="sidebox--content" :class="{ 'sidebox--content--no-padding': noPadding }">
                 <slot></slot>
             </div>
         </div>
@@ -32,6 +32,10 @@ export default {
         classes: {
             type: [String, Array, Object],
             default: '',
+        },
+        noPadding: {
+            type: Boolean,
+            default: false,
         }
     },
     data: () => ({
@@ -158,6 +162,10 @@ $sidebox-padding-y-desktop: 100px;
     @include lg() {
         padding: $sidebox-padding-y-desktop $sidebox-padding-x-desktop;
     }
+
+    &.sidebox--content--no-padding {
+        padding: 0;
+    }
 }
 
 .sidebox--close {
@@ -194,16 +202,6 @@ $sidebox-padding-y-desktop: 100px;
         > img {
             transform: scale(0.7)
         }
-    }
-}
-
-.sidebox--divider {
-    width: calc(100% + #{$sidebox-padding-x-mobile * 2});
-    margin-left: -#{$sidebox-padding-x-mobile};
-
-    @include lg() {
-        width: calc(100% + #{$sidebox-padding-x-desktop * 2});
-        margin-left: -#{$sidebox-padding-x-desktop};
     }
 }
 

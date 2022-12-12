@@ -5,5 +5,9 @@
 </template>
 
 <style lang="scss">
-// Styled in SideBox/index.vue due to the fact we need to use its padding variables
+
+.sidebox--divider {
+    border-bottom: 2px solid $color-medium-divider;
+    width: 100%;
+}
 </style>
