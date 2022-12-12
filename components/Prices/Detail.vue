@@ -19,7 +19,7 @@
                     </div>
                     <div class="flex flex-col">
                         <span class="uppercase text-dtable-desc">cena</span>
-                        <span class="text-sm-title">{{ data.price }}</span>
+                        <span class="text-sm-title">{{ formatPrice(data.price) }}</span>
                     </div>
                 </div>
 
@@ -46,7 +46,7 @@
                     </div>
                     <div class="prices-detail--table--row">
                         <span class="uppercase text-dtable-desc">cena vč. dph</span>
-                        <span class="text-dtable-value">{{ data.price }}</span>
+                        <span class="text-dtable-value">{{ formatPriceWithCurrency(data.price) }}</span>
                     </div>
                 </div>
 
@@ -72,8 +72,10 @@
                         :key="`pdetail-flr-${item.id}`"
                     >
                         <div class="prices-detail--table--row">
-                            <span class="uppercase text-dtable-desc">{{ item.id }}</span>
-                            <span class="uppercase text-dtable-desc">{{ item.label }}</span>
+                            <div>
+                                <span class="uppercase text-dtable-desc mr-7">{{ item.id }}</span>
+                                <span class="uppercase text-dtable-desc">{{ item.label }}</span>
+                            </div>
                             <span class="text-dtable-value">{{ item.value }}</span>
                         </div>
                     </div>
@@ -115,6 +117,8 @@
 </template>
 
 <script>
+import { formatPrice, formatPriceWithCurrency } from '~/utils/price'
+
 export default {
     props: {
         open: {
@@ -170,7 +174,9 @@ export default {
     methods: {
         handleGroundPlanClick(id) {
             this.selectedGroundPlan = id
-        }
+        },
+        formatPrice: formatPrice,
+        formatPriceWithCurrency: formatPriceWithCurrency,
     }
 }
 </script>

@@ -31,6 +31,8 @@
 </template>
 
 <script>
+import { formatPrice } from '~/utils/price'
+
 export default {
     emits: ['click'],
     props: {
@@ -41,9 +43,7 @@ export default {
     },
     methods: {
         // Todo: move elsewhere, utils?
-        formatPrice(price) {
-            return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ',-'
-        }
+        formatPrice: formatPrice,
     }
 }
 </script>
