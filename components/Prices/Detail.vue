@@ -139,7 +139,11 @@ export default {
 
 <style lang="scss">
 .prices-detail--block {
-    margin: 60px;
+    margin: 40px 20px;
+
+    @include lg() {
+        margin: 60px;
+    }
 }
 
 .prices-detail--contact {
@@ -150,7 +154,11 @@ export default {
 }
 
 .prices-detail .contact-form {
-    padding: 60px;
+    padding: 40px 20px;
+
+    @include lg() {
+        padding: 60px;
+    }
 }
 
 .prices-detail .sidebox--divider {
