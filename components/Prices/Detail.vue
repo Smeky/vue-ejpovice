@@ -49,6 +49,12 @@
                         <span class="text-dtable-value">{{ data.price }}</span>
                     </div>
                 </div>
+
+                <div class="flex justify-center mt-16">
+                    <ButtonRounded class="button--blue">
+                        poptat tento dům
+                    </ButtonRounded>
+                </div>
             </div>
 
             <SideBoxDivider />

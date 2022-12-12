@@ -105,6 +105,14 @@ $button-rounded-height-large: 50px;
             background-color: $color-main-green;
         }
     }
+
+    &.button--blue {
+        color: $color-white;
+    
+        &:before {    
+            background-color: $color-main-web-blue;
+        }
+    }
 }
 
 .button-rounded--large {
