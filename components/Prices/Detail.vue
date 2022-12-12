@@ -80,6 +80,12 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="flex justify-center">
+                    <ButtonRounded outline class="mt-16">
+                        stáhnout pdf kartu domu
+                    </ButtonRounded>
+                </div>
             </div>
 
             <SideBoxDivider />
