@@ -89,6 +89,7 @@ export default {
                 else {
                     this.timeline.to(['.sidebox-anchor', '.sidebox'], { duration: 0.3, x: this.position === 'left' ? 640 : -640 })
                     this.timeline.to('#sidebox-overlay', { duration: 0.3, opacity: 0.6, pointerEvents: 'all' }, '<')
+                    this.timeline.to('body', { overflow: 'hidden' }, '<')
                 }
 
                 this.timeline.eventCallback('onComplete', () => { this.isClosable = true })
@@ -104,6 +105,7 @@ export default {
             else {
                 this.timeline.to(['.sidebox-anchor', '.sidebox'], { duration: 0.3, x: 0 })
                 this.timeline.to('#sidebox-overlay', { duration: 0.3, opacity: 0, pointerEvents: 'none' }, '<')
+                this.timeline.set('body', { overflow: '' }, '<')
             }
 
             this.timeline.eventCallback('onComplete', () => { this.closing = false })
@@ -126,7 +128,7 @@ $sidebox-width-mobile: 100%;
     position: fixed;
     top: 0;
     background-color: $color-web-background;
-    overflow: hidden;
+    overflow: auto;
     height: 0;
     width: $sidebox-width-mobile;
     z-index: 10;
@@ -163,6 +165,7 @@ $sidebox-width-mobile: 100%;
     display: flex;
     margin-top: 16px;
     margin-right: 16px;
+    cursor: pointer;
 
     width: 40px;
     height: 40px;
