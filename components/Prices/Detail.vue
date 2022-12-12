@@ -112,8 +112,8 @@ export default {
 </script>
 
 <style lang="scss">
-.prices-detail {
-    
+.prices-detail .contact-form {
+    background-color: $color-main-green;
 }
 
 .prices-detail .sidebox--divider {
