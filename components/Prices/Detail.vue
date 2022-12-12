@@ -61,15 +61,15 @@
 
             <div class="prices-detail--block">
                 <h3 class="text-lg-title">Půdorysy</h3>
-                <!-- Todo <ToggleButtonGroup /> -->
+                <ToggleButtonGroup class="mt-5" :items="groundPlans" :selected="selectedGroundPlan" @click="handleGroundPlanClick" />
 
                 <div class="flex justify-center">
                     <PlaceholderImage class="my-16" width="380" height="640" />
                 </div>
 
                 <div class="prices-detail--table">
-                    <div v-for="item in mock.pudorysy"
-                        :key="`pdetail-${item.id}`"
+                    <div v-for="item in mock.pudorysy[selectedGroundPlan].items"
+                        :key="`pdetail-flr-${item.id}`"
                     >
                         <div class="prices-detail--table--row">
                             <span class="uppercase text-dtable-desc">{{ item.id }}</span>
@@ -127,19 +127,51 @@ export default {
         }
     },
     data: () => ({
+        selectedGroundPlan: null,
         mock: {
-            pudorysy: [
-                { id: '1.1.01', label: 'zádveří', value: 3.98 },
-                { id: '1.1.02', label: 'šatna', value: 2.44 },
-                { id: '1.1.03', label: 'zádveří', value: 3.98 },
-                { id: '1.1.04', label: 'šatna', value: 2.44 },
-                { id: '1.1.05', label: 'zádveří', value: 3.98 },
-                { id: '1.1.06', label: 'šatna', value: 2.44 },
-                { id: '1.1.07', label: 'zádveří', value: 3.98 },
-                { id: '1.1.08', label: 'šatna', value: 2.44 },
-            ]
+            pudorysy: {
+                '1patro': {
+                    label: 'I. patro',
+                    items: [
+                        { id: '1.1.01', label: 'zádveří', value: 3.98 },
+                        { id: '1.1.02', label: 'šatna', value: 2.44 },
+                        { id: '1.1.03', label: 'zádveří', value: 3.98 },
+                        { id: '1.1.04', label: 'šatna', value: 2.44 },
+                        { id: '1.1.05', label: 'zádveří', value: 3.98 },
+                        { id: '1.1.06', label: 'šatna', value: 2.44 },
+                        { id: '1.1.07', label: 'zádveří', value: 3.98 },
+                        { id: '1.1.08', label: 'šatna', value: 2.44 },
+                    ]
+                },
+                '2patro': {
+                    label: 'II. patro',
+                    items: [
+                        { id: '1.2.01', label: 'zádveří', value: 3.98 },
+                        { id: '1.2.02', label: 'šatna', value: 2.44 },
+                        { id: '1.2.03', label: 'zádveří', value: 3.98 },
+                        { id: '1.2.04', label: 'šatna', value: 2.44 },
+                        { id: '1.2.05', label: 'zádveří', value: 3.98 },
+                    ]
+                }
+            }
         }
     }),
+    computed: {
+        groundPlans() {
+            return Object.keys(this.mock.pudorysy).map(key => ({
+                id: key,
+                label: this.mock.pudorysy[key].label,
+            }))
+        }
+    },
+    mounted() {
+        this.selectedGroundPlan = Object.keys(this.mock.pudorysy)[0]
+    },
+    methods: {
+        handleGroundPlanClick(id) {
+            this.selectedGroundPlan = id
+        }
+    }
 }
 </script>
 

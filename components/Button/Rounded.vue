@@ -2,7 +2,8 @@
     <div class="button-rounded" 
         :class="{
             'button-rounded--large': large,
-            'button-rounded--outline': outline
+            'button-rounded--outline': outline,
+            'button-rounded--nohover': noHover,
         }"
         @click="$emit('click')"
     >
@@ -12,13 +13,13 @@
                 'text-lg-button': large,
             }"
         >
-            <div v-if="iconPosition === 'left'" class="mr-2">
+            <div v-if="hasIcon && iconPosition === 'left'" class="mr-2">
                 <slot name="icon"></slot>
             </div>
 
             <slot></slot>
             
-            <div v-if="iconPosition === 'right'" class="ml-2">
+            <div v-if="hasIcon && iconPosition === 'right'" class="ml-2">
                 <slot name="icon"></slot>
             </div>
         </ButtonContent>
@@ -37,14 +38,19 @@ export default {
             type: Boolean,
             default: false
         },
-        icon: {
-            type: String,
-            default: ''
-        },
         iconPosition: {
             type: String,
             default: 'left',
             validator: value => ['left', 'right'].includes(value)
+        },
+        noHover: {
+            type: Boolean,
+            default: false
+        }
+    },
+    computed: {
+        hasIcon() {
+            return !!this.$slots.icon;
         }
     }
 }
@@ -84,7 +90,7 @@ $button-rounded-height-large: 50px;
         transition: all 0.2s ease-in-out;
     }
 
-    &:hover {
+    &:hover:not(&--nohover) {
         &:before {
             transform: scaleX(1.07);
         }
@@ -126,7 +132,7 @@ $button-rounded-height-large: 50px;
         outline: 1px solid rgba($color-main-text, 0.2);
     }
 
-    &:hover {
+    &:hover:not(&--nohover) {
         &:before {
             transform: scaleX(1); // negate the original hover effect
             outline: 1px solid $color-main-text;
