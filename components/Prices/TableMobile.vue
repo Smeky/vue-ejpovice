@@ -43,9 +43,13 @@
                 </div>
 
                 <div class="inline-flex justify-center w-full">
-                    <div class="button--rounded button--white" @click="$emit('click', item)">
-                        <span class="text-md-button uppercase">detail nemovitosti</span>
-                    </div>
+                    <ButtonRounded outline @click="$emit('click', item)">
+                        <template v-slot:icon>
+                            <img src="~/assets/icons/eye.svg" />
+                        </template>
+
+                        detail nemovitosti
+                    </ButtonRounded>
                 </div>
             </div>
         </div>

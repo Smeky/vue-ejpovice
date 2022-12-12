@@ -18,7 +18,7 @@
                         :selected="selectedFilter" 
                         @click="handleFilterClick" />
 
-                    <ButtonRounded v-scroll-to="'#HouseSelection'" outline class="button--white">
+                    <ButtonRounded v-if="!$store.state.isMobile" v-scroll-to="'#HouseSelection'" outline class="button--white">
                         <template v-slot:icon>
                             <img width="20" height="20" src="~/assets/icons/cube.svg" />
                         </template>
