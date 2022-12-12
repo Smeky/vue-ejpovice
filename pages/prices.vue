@@ -9,7 +9,7 @@
 
                 <div class="prices-page--table-controls">
                     <div class="flex" v-if="!$store.state.isMobile">
-                        <ToggleSwitch :value="filterFree" @click="filterFree = !filterFree" />
+                        <ToggleSwitch :value="filterAvailable" @click="filterAvailable = !filterAvailable" />
                         <span class="text-sm-ui-desc leading-loose ml-3">Zobrazit jen volné</span>
                     </div>
                     
@@ -30,8 +30,8 @@
 
             <div class="prices-page--separator"></div>
 
-            <PricesTableMobile v-if="$store.state.isMobile" :items="tableItems" @click="handleDetailClick" />
-            <PricesTableDesktop v-else id="HouseTable" class="px-32 py-20" :items="tableItems" @click="handleDetailClick" />
+            <PricesTableMobile v-if="$store.state.isMobile" :items="filteredTableItems" @click="handleDetailClick" />
+            <PricesTableDesktop v-else id="HouseTable" class="px-32 py-20" :items="filteredTableItems" @click="handleDetailClick" />
 
             <BlockContact />
         </div>
@@ -41,29 +41,43 @@
 </template>
 
 <script>
+const ItemFilters = {
+    'Všechny': () => true,
+    'Jen Domy': item => item.offer_type === 'Dům',
+    'Jen pozemky': item => item.offer_type === 'Pozemek',
+}
+
 export default {
     data: () => ({
-        filterFree: false,
-        filterItems: ['Všechny', 'Jen Domy', 'Jen pozemky'],
+        filterAvailable: false,
+        filterItems: Object.keys(ItemFilters),
         selectedFilter: 'Všechny',
         selectedDetail: null,
         tableItems: [
-            { number: 'E1', offer_type: 'Pozemek', house_type: 'Bungalov + patro', disposition: '5+kk', use_area: '127', area: '500', price: 4990000, state: 'free' },
-            { number: 'E2', offer_type: 'Pozemek', house_type: 'Bungalov + patro', disposition: '5+kk', use_area: '127', area: '500', price: 4990000, state: 'sold' },
-            { number: 'E3', offer_type: 'Pozemek', house_type: 'Bungalov + patro', disposition: '5+kk', use_area: '127', area: '500', price: 4990000, state: 'free' },
-            { number: 'E4', offer_type: 'Pozemek', house_type: 'Bungalov + patro', disposition: '5+kk', use_area: '127', area: '500', price: 4990000, state: 'free' },
-            { number: 'E5', offer_type: 'Pozemek', house_type: 'Bungalov + patro', disposition: '5+kk', use_area: '127', area: '500', price: 4990000, state: 'free' },
-            { number: 'E6', offer_type: 'Pozemek', house_type: 'Bungalov + patro', disposition: '5+kk', use_area: '127', area: '500', price: 4990000, state: 'reservation' },
-            { number: 'E7', offer_type: 'Pozemek', house_type: 'Bungalov + patro', disposition: '5+kk', use_area: '127', area: '500', price: 4990000, state: 'free' },
-            { number: 'E8', offer_type: 'Pozemek', house_type: 'Bungalov + patro', disposition: '5+kk', use_area: '127', area: '500', price: 4990000, state: 'free' },
-            { number: 'E9', offer_type: 'Pozemek', house_type: 'Bungalov + patro', disposition: '5+kk', use_area: '127', area: '500', price: 4990000, state: 'sold' },
-            { number: 'E10', offer_type: 'Pozemek', house_type: 'Bungalov + patro', disposition: '5+kk', use_area: '127', area: '500', price: 4990000, state: 'sold' },
-            { number: 'E11', offer_type: 'Pozemek', house_type: 'Bungalov + patro', disposition: '5+kk', use_area: '127', area: '500', price: 4990000, state: 'free' },
+            { number: 'E1',  offer_type: 'Pozemek', house_type: 'Bungalov + patro', disposition: '5+kk', use_area: '127', area: '500', price: 4990000, state: 'free' },
+            { number: 'E2',  offer_type: 'Dům',     house_type: 'Bungalov + patro', disposition: '5+kk', use_area: '127', area: '500', price: 4990000, state: 'sold' },
+            { number: 'E3',  offer_type: 'Dům',     house_type: 'Bungalov + patro', disposition: '1+kk', use_area: '127', area: '500', price: 4990000, state: 'free' },
+            { number: 'E4',  offer_type: 'Dům',     house_type: 'Bungalov',         disposition: '2+kk', use_area: '127', area: '500', price: 4990000, state: 'free' },
+            { number: 'E5',  offer_type: 'Dům',     house_type: 'Bungalov',         disposition: '3+kk', use_area: '127', area: '500', price: 4990000, state: 'free' },
+            { number: 'E6',  offer_type: 'Dům',     house_type: 'Bungalov',         disposition: '4+kk', use_area: '127', area: '500', price: 4990000, state: 'reservation' },
+            { number: 'E7',  offer_type: 'Pozemek', house_type: 'Bungalov',         disposition: '5+kk', use_area: '127', area: '500', price: 4990000, state: 'free' },
+            { number: 'E8',  offer_type: 'Pozemek', house_type: 'Bungalov',         disposition: '5+kk', use_area: '127', area: '500', price: 4990000, state: 'free' },
+            { number: 'E9',  offer_type: 'Pozemek', house_type: 'Bungalov',         disposition: '5+kk', use_area: '127', area: '500', price: 4990000, state: 'sold' },
+            { number: 'E10', offer_type: 'Dům',     house_type: 'Bungalov + patro', disposition: '5+kk', use_area: '127', area: '500', price: 4990000, state: 'sold' },
+            { number: 'E11', offer_type: 'Dům',     house_type: 'Bungalov + patro', disposition: '5+kk', use_area: '127', area: '500', price: 4990000, state: 'free' },
             { number: 'E12', offer_type: 'Pozemek', house_type: 'Bungalov + patro', disposition: '5+kk', use_area: '127', area: '500', price: 4990000, state: 'reservation' },
             { number: 'E13', offer_type: 'Pozemek', house_type: 'Bungalov + patro', disposition: '5+kk', use_area: '127', area: '500', price: 4990000, state: 'reservation' },
             { number: 'E14', offer_type: 'Pozemek', house_type: 'Bungalov + patro', disposition: '5+kk', use_area: '127', area: '500', price: 4990000, state: 'free' },
         ]
     }),
+    computed: {
+        filteredTableItems() {
+            const availableFilter = item => !this.filterAvailable || item.state === 'free'
+            const typeFilter = ItemFilters[this.selectedFilter]
+
+            return this.tableItems.filter(availableFilter).filter(typeFilter)
+        }
+    },
     methods: {
         handleFilterClick(item) {
             this.selectedFilter = item
