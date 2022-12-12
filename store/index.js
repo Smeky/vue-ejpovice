@@ -5,14 +5,14 @@ export const state = () => ({
 
     navigation: [
         { label: 'Kontakt',      url: '/contact' },
-        { label: 'Galerie',      url: '/download' },
-        { label: 'Ke stažení',   url: '/financing' },
-        { label: 'Financování',  url: '/gallery' },
-        { label: 'Pasivní domy', url: '/index' },
-        { label: 'Standardy',    url: '/locality' },
-        { label: 'Lokalita',     url: '/passive_houses' },
+        { label: 'Galerie',      url: '/gallery' },
+        { label: 'Ke stažení',   url: '/download' },
+        { label: 'Financování',  url: '/financing' },
+        { label: 'Pasivní domy', url: '/passive_houses' },
+        { label: 'Standardy',    url: '/standards' },
+        { label: 'Lokalita',     url: '/locality' },
         { label: 'Ceník',        url: '/prices' },
-        { label: 'O projektu',   url: '/standards' },
+        { label: 'O projektu',   url: '/about_project' },
     ],
 })
 

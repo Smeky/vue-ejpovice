@@ -7,9 +7,14 @@
                 Pasivní domy s řadou moderních technologií.
             </h2>
             
-            <WithArrow class="button--rounded button--white button--grow-inplace text-lg-button" color="#333">
-                <span class="uppercase">více o pasivních domech</span>
-            </WithArrow>
+            <NuxtLink to="passive_houses">
+                <ButtonRounded large iconPosition="right" class="button--white z-[1]">
+                    <span>více o pasivních domech</span>
+                    <template v-slot:icon>
+                        <IconArrow color="#333" />
+                    </template>
+                </ButtonRounded>
+            </NuxtLink>
         </div>
 
         <GradesRectangle @click="handleGradeClick" class="mx-auto" />

@@ -18,7 +18,7 @@
                         :selected="selectedFilter" 
                         @click="handleFilterClick" />
 
-                    <ButtonRounded outline class="button--white">
+                    <ButtonRounded v-scroll-to="'#HouseSelection'" outline class="button--white">
                         <template v-slot:icon>
                             <img width="20" height="20" src="~/assets/icons/cube.svg" />
                         </template>
@@ -31,7 +31,7 @@
             <div class="prices-page--separator"></div>
 
             <PricesTableMobile v-if="$store.state.isMobile" :items="tableItems" @click="handleDetailClick" />
-            <PricesTableDesktop v-else class="px-32 py-20" :items="tableItems" @click="handleDetailClick" />
+            <PricesTableDesktop v-else id="HouseTable" class="px-32 py-20" :items="tableItems" @click="handleDetailClick" />
 
             <BlockContact />
         </div>
@@ -64,9 +64,6 @@ export default {
             { number: 'E14', offer_type: 'Pozemek', house_type: 'Bungalov + patro', disposition: '5+kk', use_area: '127', area: '500', price: 4990000, state: 'free' },
         ]
     }),
-    mounted() {
-        window.scrollTo(0, document.body.scrollHeight);
-    },
     methods: {
         handleFilterClick(item) {
             this.selectedFilter = item

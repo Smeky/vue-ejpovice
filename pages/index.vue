@@ -4,7 +4,7 @@
         <div>
             <Homescreen />
 
-            <div class="my-gt mx-5 flex-center">
+            <div id="AboutProject" class="my-gt mx-5 flex-center">
                 <div class="flex-center flex-col lg:w-[800px] text-center">
                     <h2 class="text-lg-title color-main-green lg:mx-24">
                         Prodej 30 pasivních domů a 4 pozemků v těsné blízkosti Plzně i přírody.
@@ -14,12 +14,14 @@
                         Projekt Domy Ejpovice nabízí k prodeji elegantní pasivní domy s prostornou zahradou, terasou i vlastním parkováním, situovaných v atraktivní lokalitě Plzeň - Ejpovice. Domy ztělesňují nový koncept moderního bydlení, v jehož rámci je kladen důraz na vytvoření komfortního domova v klidném přírodním prostředí a také energetickou soběstačnost. Projekt je výsledkem již úspěšně dokončené I. etapy.
                     </p>
                     
-                    <ButtonRounded large iconPosition="right" class="button--green">
-                        více o projektu
-                        <template v-slot:icon>
-                            <IconArrow color="#fff" />
-                        </template>
-                    </ButtonRounded>
+                    <NuxtLink to="about_project">
+                        <ButtonRounded large iconPosition="right" class="button--green">
+                            více o projektu
+                            <template v-slot:icon>
+                                <IconArrow color="#fff" />
+                            </template>
+                        </ButtonRounded>
+                    </NuxtLink>
 
                     <div class="button--rounded button--main-green text-lg-button">
                         <IconArrow color="#fff" class="ml-3" />
@@ -33,12 +35,14 @@
                         Ejpovice. Klidná lokalita v sousedství Plzně.
                     </h2>
                     
-                    <ButtonRounded large iconPosition="right" class="button--white">
-                        <span>více o lokalitě</span>
-                        <template v-slot:icon>
-                            <IconArrow color="#333" />
-                        </template>
-                    </ButtonRounded>
+                    <NuxtLink to="locality">
+                        <ButtonRounded large iconPosition="right" class="button--white">
+                            <span>více o lokalitě</span>
+                            <template v-slot:icon>
+                                <IconArrow color="#333" />
+                            </template>
+                        </ButtonRounded>
+                    </NuxtLink>
                 </div>
             </Poster>
 
@@ -65,14 +69,14 @@
                     </p>
                     
                     <div>
-                    
-                        <ButtonRounded large iconPosition="right" class="button--green">
-                            více o standardech
-
-                            <template v-slot:icon>
-                                <IconArrow color="#fff" />
-                            </template>
-                        </ButtonRounded>
+                        <NuxtLink to="standards">
+                            <ButtonRounded large iconPosition="right" class="button--green">
+                                více o standardech
+                                <template v-slot:icon>
+                                    <IconArrow color="#fff" />
+                                </template>
+                            </ButtonRounded>
+                        </NuxtLink>
                     </div>
                 </div>
             </BlockCard>

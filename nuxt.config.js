@@ -64,6 +64,7 @@ export default {
   modules: [
     '@nuxtjs/style-resources',  // style-resources allow us to not having to import scss files in every component
     '@nuxtjs/axios',
+    'vue-scrollto/nuxt',
   ],
 
   styleResources: {

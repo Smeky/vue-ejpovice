@@ -1,5 +1,5 @@
 <template>
-    <div class="house-select">
+    <div id="HouseSelection" class="house-select">
         <div class="house-select--map">
             <img src="~/assets/images/Free_spaces.png" />
 
@@ -19,7 +19,7 @@
                 </div>
                 <span class="text-md-title color-white mb-8">volných</span>
 
-                <ButtonRounded class="button--white">
+                <ButtonRounded v-scroll-to="'#HouseTable'" class="button--white">
                     <span class="text-md-button uppercase">vybrat z tabulky</span>
                 </ButtonRounded>
             </div>

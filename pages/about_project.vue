@@ -1,6 +1,6 @@
 <template>
     <div class="poster-height grid place-items-center">
-        <h2 class="text-lg-title">Galerie</h2>
+        <h2 class="text-lg-title">O Projektu</h2>
     </div>
 </template>
 

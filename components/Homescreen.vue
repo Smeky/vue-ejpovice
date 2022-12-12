@@ -11,7 +11,9 @@
                         <div class="grid place-items-center">
                             <img src="~/assets/icons/more.svg" />
                         </div>
-                        <span class="uppercase text-lg-button">více o projektu</span>
+                        <span v-scroll-to="'#AboutProject'" class="uppercase text-lg-button">
+                            více o projektu
+                        </span>
                     </div>
                 </div>
             </div>
@@ -21,9 +23,9 @@
                     <span class="leading-none text-sm-num mb-1">/ 32</span>
                     <span class="leading-none -mt-5 text-lg-num">26</span>
                     
-                    <div>
+                    <NuxtLink to="prices">
                         <ButtonLeaf>vyberte si</ButtonLeaf>
-                    </div>
+                    </NuxtLink>
                 </div>
             </div>
         </div>

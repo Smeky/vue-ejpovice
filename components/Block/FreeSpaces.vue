@@ -7,7 +7,9 @@
         <div class="free-spaces--content">
             <h2 class="text-cta-title color-white">26 volných</h2>
             
-            <div><ButtonLeaf>vyberte si</ButtonLeaf></div>
+            <NuxtLink to="prices">
+                <ButtonLeaf>vyberte si</ButtonLeaf>
+            </NuxtLink>
         </div>
     </div>
 </template>

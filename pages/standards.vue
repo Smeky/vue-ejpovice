@@ -1,6 +1,6 @@
 <template>
-    <div>
-        
+    <div class="poster-height grid place-items-center">
+        <h2 class="text-lg-title">Standardy</h2>
     </div>
 </template>
 
