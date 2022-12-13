@@ -3,7 +3,7 @@
         <div v-for="(grade, index) in grades" :key="`grades-${index}`"
              class="grades-rectangle--grade-container"
              :class="grade.class"
-             @click="$emit('click', grade.name)"
+             @click="openedSidebox = grade.name"
         >
             <div class="grades-rectangle--grade py-8 lg:py-12">
                 <img :src="grade.icon" />
@@ -16,12 +16,19 @@
                 </WithArrow>
             </div>
         </div>
+
+        <GradesSideboxes 
+            :open="openedSidebox" 
+            @close="openedSidebox = null" 
+            @next="handleSideboxNextClick" 
+        />
     </div>
 </template>
 
 <script>
 export default {
     data: () => ({
+        openedSidebox: null,
         grades: [
             {
                 name: 'health',
@@ -48,7 +55,22 @@ export default {
                 class: 'grades-rectangle--grade--bottomright'
             }
         ]
-    })
+    }),
+    methods: {
+        handleGradeClick(name) {
+            this.openedSidebox = name
+        },
+        handleSideboxNextClick() {
+            const currentIndex = this.grades.findIndex(grade => grade.name === this.openedSidebox)
+            const nextIndex = currentIndex + 1
+
+            if (nextIndex < this.grades.length) {
+                this.openedSidebox = this.grades[nextIndex].name
+            } else {
+                this.openedSidebox = this.grades[0].name
+            }
+        }
+    }
 }
 </script>
 

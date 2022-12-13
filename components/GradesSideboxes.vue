@@ -8,25 +8,28 @@
                  @close="$emit('close')" 
         >
             <div class="flex items-center mb-28">
-                <img :src="sidebox.icon" />
-                <h2 class="text-lg-button uppercase ml-5">{{ sidebox.title }}</h2>
+                <Component :is="sidebox.icon" :color="sidebox.iconColor"></Component>
+                <h2 class="text-lg-button uppercase ml-5">
+                    {{ sidebox.title }}
+                </h2>
             </div>
 
             <div v-for="(paragraph, index) in sidebox.paragraphs"
                  :key="`sidebox-${sidebox.name}-p${index}`"
                  class="mb-16 lg:mb-28"
-                 :class="sidebox.paragraphsClass"
             >
                 <h3 class="text-sm-title mb-4">{{ paragraph.title }}</h3>
                 <p class="text-lg-paragraph mb-16">{{ paragraph.text }}</p>
             </div>
 
-            <div class="flex items-center">
-                <div class="button--rounded button--white">
-                    <IconArrow color="#000" />
+            <div class="grade--button" @click="$emit('next')">
+                <div class="grade--button--icon" >
+                    <IconArrow :color="sidebox.buttonColors.icon" />
                 </div>
 
-                <span class="text-lg-button uppercase ml-5">další: vysoký komfort</span>
+                <span class="text-lg-button uppercase ml-5">
+                    další: vysoký komfort
+                </span>
             </div>
         </SideBox>
     </div>
@@ -34,7 +37,7 @@
 
 <script>
 export default {
-    emits: ['close'],
+    emits: ['close', 'next'],
     props: {
         // Name of opened sidebox. If null, no sidebox is opened.
         open: {
@@ -47,11 +50,11 @@ export default {
         sideboxes: [
             {
                 name: 'health',
-                icon: require('~/assets/icons/grade-health.svg'),
+                icon: 'IconGradeHealth',
+                iconColor: '#fff',
                 title: 'zdravé bydlení',
-                textColor: '#fff',
-                sideboxClass: 'grade-bg--health',
-                paragraphsClass: 'color-white',
+                sideboxClass: ['grade--health'],
+                buttonColors: { icon: '#333', bg: '#fff' },
                 paragraphs: [
                     { 
                         title: 'Zdravé klima bez prachu a pilu',
@@ -64,10 +67,11 @@ export default {
             },
             {
                 name: 'comfort',
-                icon: require('~/assets/icons/grade-comfort.svg'),
+                icon: 'IconGradeComfort',
+                iconColor: '#333',
                 title: 'vysoký komfort',
-                sideboxClass: 'grade-bg--comfort',
-                paragraphsClass: 'color-black',
+                sideboxClass: 'grade--comfort',
+                buttonColors: { icon: '#fff', bg: '#333' },
                 paragraphs: [
                     { 
                         title: 'Důmyslně řešené interiéry',
@@ -80,10 +84,11 @@ export default {
             },
             {
                 name: 'savings',
-                icon: require('~/assets/icons/grade-savings.svg'),
+                icon: 'IconGradeSavings',
+                iconColor: '#fff',
                 title: 'úspora nákladů',
-                sideboxClass: 'grade-bg--savings',
-                paragraphsClass: 'color-white',
+                sideboxClass: 'grade--savings',
+                buttonColors: { icon: '#333', bg: '#fff' },
                 paragraphs: [
                     { 
                         title: 'Minimální náklady na vytápění',
@@ -96,10 +101,11 @@ export default {
             },
             {
                 name: 'gentle',
-                icon: require('~/assets/icons/grade-gentle.svg'),
+                icon: 'IconGradeGentle',
+                iconColor: '#333',
                 title: 'šetrnost stavby',
-                sideboxClass: 'grade-bg--gentle',
-                paragraphsClass: 'color-black',
+                sideboxClass: 'grade--gentle',
+                buttonColors: { icon: '#fff', bg: '#333' },
                 paragraphs: [
                     { 
                         title: 'Nízká zátěž životního prostředí',
@@ -116,16 +122,59 @@ export default {
 </script>
 
 <style lang="scss">
-.sidebox.grade-bg--health {
+.sidebox.grade--health {
     background-color: $color-grades-a;
+    color: $color-white;
+
+    .grade--button--icon {
+        background-color: $color-white;
+    }
 }
-.sidebox.grade-bg--comfort {
+.sidebox.grade--comfort {
     background-color: $color-grades-b;
+    color: $color-main-text;
+
+    .grade--button--icon {
+        background-color: $color-main-text;
+    }
 }
-.sidebox.grade-bg--savings {
+.sidebox.grade--savings {
     background-color: $color-grades-c;
+    color: $color-white;
+
+    .grade--button--icon {
+        background-color: $color-white;
+    }
 }
-.sidebox.grade-bg--gentle {
+.sidebox.grade--gentle {
     background-color: $color-grades-d;
+    color: $color-main-text;
+
+    .grade--button--icon {
+        background-color: $color-main-text;
+    }
 }
+
+.sidebox .grade--button {
+    @include button-base();
+
+    display: flex;
+    align-items: center;
+    width: fit-content;
+
+    &--icon {
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.2s ease-in-out;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+}
+
 </style>

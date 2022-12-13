@@ -18,23 +18,14 @@
                 </NuxtLink>
             </div>
 
-            <GradesRectangle @click="handleGradeClick" class="mx-auto" />
+            <GradesRectangle class="mx-auto" />
         </BlockContainer>
-
-        <GradesSideboxes :open="openedSidebox" @close="openedSidebox = null" />
     </div>
 </template>
 
 <script>
 export default {
-    data: () => ({
-        openedSidebox: null
-    }),
-    methods: {
-        handleGradeClick(name) {
-            this.openedSidebox = name
-        }
-    }
+    
 }
 </script>
 
