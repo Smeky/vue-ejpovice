@@ -1,5 +1,5 @@
 <template>
-    <div class="card-block--wrapper lg:mx-32">
+    <div class="card-block--wrapper">
         <div class="card-block">
             <div class="card-block--image">
                 <img :src="image">
@@ -26,7 +26,7 @@ export default {
 <style lang="scss">
 .card-block {
     display: grid;
-    justify-content: center;
+    justify-content: space-between;
 
     grid-template-columns: 1fr;
 

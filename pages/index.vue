@@ -29,21 +29,23 @@
                 </div>
             </div>
 
-            <Poster :image="require('~/assets/images/Ejpovice_poster.png')">
-                <div class="absolute bottom-0 left-0 lg:ml-32 lg:mb-32 ml-5 mb-16">
-                    <h2 class="text-lg-title color-white lg:w-[600px] lg:mb-16 mb-8">
-                        Ejpovice. Klidná lokalita v sousedství Plzně.
-                    </h2>
-                    
-                    <NuxtLink to="locality">
-                        <ButtonRounded large iconPosition="right" class="button--white">
-                            <span>více o lokalitě</span>
-                            <template v-slot:icon>
-                                <IconArrow color="#333" />
-                            </template>
-                        </ButtonRounded>
-                    </NuxtLink>
-                </div>
+            <Poster class="flex items-end" :image="require('~/assets/images/Ejpovice_poster.png')">
+                <BlockContainer>
+                    <div class="lg:mb-32 mb-16">
+                        <h2 class="text-lg-title color-white lg:w-[600px] lg:mb-16 mb-8">
+                            Ejpovice. Klidná lokalita v sousedství Plzně.
+                        </h2>
+                        
+                        <NuxtLink to="locality">
+                            <ButtonRounded large iconPosition="right" class="button--white">
+                                <span>více o lokalitě</span>
+                                <template v-slot:icon>
+                                    <IconArrow color="#333" />
+                                </template>
+                            </ButtonRounded>
+                        </NuxtLink>
+                    </div>
+                </BlockContainer>
             </Poster>
 
             <div class="my-lg flex-center">
@@ -56,30 +58,32 @@
                 </div>
             </div>
 
-            <BlockHouseGrades class="px-5" />
+            <BlockHouseGrades class="flex items-center" />
 
-            <BlockCard class="my-gt" :image="require('~/assets/images/18775.png')">
-                <div class="flex flex-col">
-                    <h2 class="text-lg-title color-main-green">
-                        Standardy ve znamení designu a kvality.
-                    </h2>
+            <BlockContainer>
+                <BlockCard class="my-gt" :image="require('~/assets/images/18775.png')">
+                    <div class="flex flex-col">
+                        <h2 class="text-lg-title color-main-green">
+                            Standardy ve znamení designu a kvality.
+                        </h2>
 
-                    <p class="text-lg-paragraph my-8 lg:my-16">
-                        Prohlédněte si široký seznam vybavení, materiálů a technologií, které jsou součástí standardu každého našeho domu.
-                    </p>
-                    
-                    <div>
-                        <NuxtLink to="standards">
-                            <ButtonRounded large iconPosition="right" class="button--green">
-                                více o standardech
-                                <template v-slot:icon>
-                                    <IconArrow color="#fff" />
-                                </template>
-                            </ButtonRounded>
-                        </NuxtLink>
+                        <p class="text-lg-paragraph my-8 lg:my-16">
+                            Prohlédněte si široký seznam vybavení, materiálů a technologií, které jsou součástí standardu každého našeho domu.
+                        </p>
+                        
+                        <div>
+                            <NuxtLink to="standards">
+                                <ButtonRounded large iconPosition="right" class="button--green">
+                                    více o standardech
+                                    <template v-slot:icon>
+                                        <IconArrow color="#fff" />
+                                    </template>
+                                </ButtonRounded>
+                            </NuxtLink>
+                        </div>
                     </div>
-                </div>
-            </BlockCard>
+                </BlockCard>
+            </BlockContainer>
 
             <BlockFreeSpaces />
         </div>
@@ -89,11 +93,7 @@
 <script>
 export default {
     name: 'IndexPage',
-    layout: 'default',
-    mounted() {
-        // scroll to end of page
-        // window.scrollTo(0, document.body.scrollHeight);
-    }
+    layout: 'default'
 }
 </script>
 
@@ -124,6 +124,16 @@ export default {
                 background-color: rgba($color-darken-web-blue, 0.5);
             }
         }
+    }
+}
+
+.home .block-container {
+    padding-left: 20px;
+    padding-right: 20px;
+
+    @include lg() {
+        padding-left: 120px;
+        padding-right: 120px;
     }
 }
 </style>

@@ -18,7 +18,7 @@
                 </div>
             </div>
 
-            <div class="flex justify-center">
+            <div class="flex justify-end">
                 <div class="flex flex-col items-end justify-end gap-y-4 w-fit">
                     <span class="leading-none text-sm-num mb-1">/ 32</span>
                     <span class="leading-none -mt-5 text-lg-num">26</span>

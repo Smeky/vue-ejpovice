@@ -1,23 +1,26 @@
 <template>
-    <div class="house-grades poster-height lg:px-28 py-16">
+    <div class="house-grades poster-height">
         <img class="house-grades--bg" src="~/assets/images/Ejpovice_0005.jpg" />
+        
+        <BlockContainer class="py-8 lg:py-16">
+            <div class="flex flex-col mt-28 lg:mt-0 max-w-[600px]">
+                <h2 class="text-lg-title color-white lg:mb-28 mb-16">
+                    Pasivní domy s řadou moderních technologií.
+                </h2>
+                
+                <NuxtLink to="passive_houses">
+                    <ButtonRounded large iconPosition="right" class="button--white z-[1]">
+                        <span>více o pasivních domech</span>
+                        <template v-slot:icon>
+                            <IconArrow color="#333" />
+                        </template>
+                    </ButtonRounded>
+                </NuxtLink>
+            </div>
 
-        <div class="mt-28 lg:mt-0">
-            <h2 class="text-lg-title color-white lg:w-[600px] lg:mb-28 mb-16">
-                Pasivní domy s řadou moderních technologií.
-            </h2>
-            
-            <NuxtLink to="passive_houses">
-                <ButtonRounded large iconPosition="right" class="button--white z-[1]">
-                    <span>více o pasivních domech</span>
-                    <template v-slot:icon>
-                        <IconArrow color="#333" />
-                    </template>
-                </ButtonRounded>
-            </NuxtLink>
-        </div>
+            <GradesRectangle @click="handleGradeClick" class="mx-auto" />
+        </BlockContainer>
 
-        <GradesRectangle @click="handleGradeClick" class="mx-auto" />
         <GradesSideboxes :open="openedSidebox" @close="openedSidebox = null" />
     </div>
 </template>
@@ -38,15 +41,7 @@ export default {
 <style lang="scss">
 .house-grades {
     position: relative;
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
     background: linear-gradient(to right, rgba($color-main-web-blue, 0.85), rgba($color-cta, 0.85));
-
-    @include lg() {
-        flex-direction: row;
-        justify-content: space-between;
-    }
 
     &--bg {
         position: absolute;
@@ -57,5 +52,23 @@ export default {
         object-fit: cover;
         z-index: -1;
     }
+}
+
+.house-grades .block-container {
+    display: flex;
+    flex-direction: column-reverse;
+
+    @include lg() {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap-reverse;
+        align-items: center;
+
+        > div:first-child {
+            flex: 1;
+            padding-right: 20px;
+        }
+    }
+
 }
 </style>
