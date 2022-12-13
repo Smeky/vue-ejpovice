@@ -3,7 +3,7 @@
         <PricesHouseSelect v-if="!$store.state.isMobile" />
         <img v-else src="~/assets/images/Ejpovice_0006_v25.png" class="object-cover w-full" />
 
-        <div class="flex flex-col">
+        <BlockContainer class="flex flex-col">
             <div class="flex flex-col mx-5 my-10 lg:pt-20 lg:pb-10 lg:px-32">
                 <h2 class="text-md-title text-center mb-6 lg:mb-12">Ceník nemovitostí</h2>
 
@@ -32,9 +32,9 @@
 
             <PricesTableMobile v-if="$store.state.isMobile" :items="filteredTableItems" @click="handleDetailClick" />
             <PricesTableDesktop v-else id="HouseTable" class="px-32 py-20" :items="filteredTableItems" @click="handleDetailClick" />
+        </BlockContainer>
 
-            <BlockContact />
-        </div>
+        <BlockContact />
 
         <PricesDetail :open="!!selectedDetail" :data="selectedDetail" @close="selectedDetail = null" />
     </div>
