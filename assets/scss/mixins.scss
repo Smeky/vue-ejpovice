@@ -22,3 +22,11 @@
     cursor: pointer;
     user-select: none;
 }
+
+// Unique to gallery button as it needs to have hover effect its parent is hovered
+@mixin button-gallery-hover() {
+    &:before {
+        background-color: $color-main-green;
+        transform: scale(0.83);
+    }
+}

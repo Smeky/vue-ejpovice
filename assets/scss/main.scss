@@ -1,29 +1,10 @@
 @import './fonts.scss';
 @import './variables.scss';
 @import './mixins.scss';
+@import './utilities.scss';
 
 body {
     background-color: $color-web-background;
-}
-
-/**
-    Utilities
-*/
-
-.flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.poster-height {
-    max-height: max(1080px, calc(100vh - 100px));
-    min-height: 600px;
-
-    // Hack to ensure poster content doesn't overflow on mobile
-    @include lg() {
-        height: calc(100vh - 100px);
-    }
 }
 
 /**

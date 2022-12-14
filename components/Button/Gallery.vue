@@ -51,10 +51,7 @@ export default {
     }
 
     &:hover {
-        &:before {
-            background-color: $color-main-green;
-            transform: scale(0.83);
-        }
+        @include button-gallery-hover();
     }
 }
 
