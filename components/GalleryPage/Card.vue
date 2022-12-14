@@ -32,6 +32,7 @@ export default {
     position: relative;
     width: 375px;
     height: 475px;
+    flex-shrink: 0;
 
     color: $color-white;
     background-color: rgba($color-darken-web-blue, 0.8);
