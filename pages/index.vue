@@ -14,7 +14,7 @@
                         Projekt Domy Ejpovice nabízí k prodeji elegantní pasivní domy s prostornou zahradou, terasou i vlastním parkováním, situovaných v atraktivní lokalitě Plzeň - Ejpovice. Domy ztělesňují nový koncept moderního bydlení, v jehož rámci je kladen důraz na vytvoření komfortního domova v klidném přírodním prostředí a také energetickou soběstačnost. Projekt je výsledkem již úspěšně dokončené I. etapy.
                     </p>
                     
-                    <NuxtLink to="about_project">
+                    <NuxtLink :to="{ name: 'about' }">
                         <ButtonRounded large iconPosition="right" class="button--green">
                             více o projektu
                             <template v-slot:icon>
@@ -36,7 +36,7 @@
                             Ejpovice. Klidná lokalita v sousedství Plzně.
                         </h2>
                         
-                        <NuxtLink to="locality">
+                        <NuxtLink :to="{ name: 'locality' }">
                             <ButtonRounded large iconPosition="right" class="button--white">
                                 <span>více o lokalitě</span>
                                 <template v-slot:icon>
@@ -72,7 +72,7 @@
                         </p>
                         
                         <div>
-                            <NuxtLink to="standards">
+                            <NuxtLink :to="{ name: 'standards' }">
                                 <ButtonRounded large iconPosition="right" class="button--green">
                                     více o standardech
                                     <template v-slot:icon>

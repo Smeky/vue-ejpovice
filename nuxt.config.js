@@ -57,6 +57,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/router',
     '@nuxtjs/composition-api/module',
   ],
 

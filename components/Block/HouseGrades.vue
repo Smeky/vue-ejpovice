@@ -8,7 +8,7 @@
                     Pasivní domy s řadou moderních technologií.
                 </h2>
                 
-                <NuxtLink to="passive_houses">
+                <NuxtLink :to="{ name: 'passive' }">
                     <ButtonRounded large iconPosition="right" class="button--white z-[1]">
                         <span>více o pasivních domech</span>
                         <template v-slot:icon>

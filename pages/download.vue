@@ -52,6 +52,7 @@
 
 <script>
 export default {
+    name: 'DownloadPage',
     data: () => ({
         selectedItem: 'All',
         items: [

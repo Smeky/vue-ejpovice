@@ -5,15 +5,15 @@ export const state = () => ({
     isNavbarStatic: false,
 
     navigation: [
-        { label: 'Kontakt',      url: '/contact' },
-        { label: 'Galerie',      url: '/gallery' },
-        { label: 'Ke stažení',   url: '/download' },
-        { label: 'Financování',  url: '/financing' },
-        { label: 'Pasivní domy', url: '/passive_houses' },
-        { label: 'Standardy',    url: '/standards' },
-        { label: 'Lokalita',     url: '/locality' },
-        { label: 'Ceník',        url: '/prices' },
-        { label: 'O projektu',   url: '/about_project' },
+        { label: 'Kontakt',      route: 'contact' },
+        { label: 'Galerie',      route: 'gallery' },
+        { label: 'Ke stažení',   route: 'download' },
+        { label: 'Financování',  route: 'financing' },
+        { label: 'Pasivní domy', route: 'passive' },
+        { label: 'Standardy',    route: 'standards' },
+        { label: 'Lokalita',     route: 'locality' },
+        { label: 'Ceník',        route: 'prices' },
+        { label: 'O projektu',   route: 'about' },
     ],
 })
 

@@ -6,7 +6,7 @@
                     <div class="menu__items flex flex-col gap-y-8">
                             <NuxtLink v-for="item in $store.state.navigation" 
                                 :key="item.label"
-                                :to="item.url"
+                                :to="{ name: item.route }"
                                 @click.native="$store.dispatch('closeMenu')"
                                 class="text-web-menu color-main-text"
                             >

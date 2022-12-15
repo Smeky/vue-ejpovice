@@ -14,7 +14,7 @@
         </NuxtLink>
 
         <div class="navbar--func flex gap-x-8 h-fit">
-            <NuxtLink to="prices" class="whitespace-nowrap text-navbar">Vyberte si</NuxtLink>
+            <NuxtLink :to="{ name: 'prices' }" class="whitespace-nowrap text-navbar">Vyberte si</NuxtLink>
             <img src="~/assets/icons/nav-home.svg" />
         </div>
     </div>

@@ -23,7 +23,7 @@
                     <span class="leading-none text-sm-num mb-1">/ 32</span>
                     <span class="leading-none -mt-5 text-lg-num">26</span>
                     
-                    <NuxtLink to="prices">
+                    <NuxtLink :to="{ name: 'prices' }">
                         <ButtonLeaf>vyberte si</ButtonLeaf>
                     </NuxtLink>
                 </div>
