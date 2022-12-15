@@ -19,7 +19,7 @@
                 </div>
                 <span class="text-md-title color-white mb-8">volných</span>
 
-                <ButtonRounded v-scroll-to="'#HouseTable'" class="button--white">
+                <ButtonRounded v-scroll-to="'#TableAnchor'" class="button--white">
                     <span class="text-md-button uppercase">vybrat z tabulky</span>
                 </ButtonRounded>
             </div>

@@ -4,7 +4,7 @@
         <img v-else src="~/assets/images/Ejpovice_0006_v25.png" class="object-cover w-full" />
 
         <BlockContainer class="flex flex-col">
-            <div class="flex flex-col mx-5 my-10 lg:pt-20 lg:pb-10 lg:px-32">
+            <div id="TableAnchor" class="flex flex-col mx-5 my-10 lg:pt-20 lg:pb-10 lg:px-32">
                 <h2 class="text-md-title text-center mb-6 lg:mb-12">Ceník nemovitostí</h2>
 
                 <div class="prices-page--table-controls">
@@ -31,7 +31,7 @@
             <div class="prices-page--separator"></div>
 
             <PricesTableMobile v-if="$store.state.isMobile" :items="filteredTableItems" @click="handleDetailClick" />
-            <PricesTableDesktop v-else id="HouseTable" class="px-32 py-20" :items="filteredTableItems" @click="handleDetailClick" />
+            <PricesTableDesktop v-else class="px-32 py-20" :items="filteredTableItems" @click="handleDetailClick" />
         </BlockContainer>
 
         <BlockContact />
@@ -93,9 +93,9 @@ export default {
 </script>
 
 <style lang="scss">
-.prices-page {
+// .prices-page {
 
-}
+// }
 
 .prices-page--separator {
     @include lg() {
