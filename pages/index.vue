@@ -100,7 +100,6 @@ export default {
 <style lang="scss">
 .home {
     margin-left: 0;
-    transition: all 0.4s ease-in-out;
 
     &::after {
         content: '';
