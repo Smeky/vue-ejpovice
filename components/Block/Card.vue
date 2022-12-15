@@ -1,6 +1,6 @@
 <template>
     <div class="card-block--wrapper">
-        <div class="card-block">
+        <div class="card-block" :class="{ 'card-block--flipped': flip }">
             <div class="card-block--image">
                 <img :src="image">
             </div>
@@ -19,6 +19,10 @@ export default {
             type: String,
             required: true
         },
+        flip: {
+            type: Boolean,
+            default: false
+        }
     }
 }
 </script>
@@ -33,7 +37,14 @@ export default {
     @include lg() {
         grid-template-columns: minmax(0, 720px) minmax(0, 720px);
     }
+}
 
+.card-block--flipped {
+    @include lg() {
+        .card-block--image {
+            order: 1;
+        }
+    }
 }
 
 .card-block--image {

@@ -1,3 +1,4 @@
+@use "sass:math";
 
 // Breakpoints (for responsive design)
 @mixin md {
@@ -12,6 +13,9 @@
     }
 }
 
+@mixin xd-letter-spacing($spacing) {
+    letter-spacing: math.div($spacing, 1000) * 1em;
+}
 
 @mixin text-hover-underline() {
     text-decoration: underline;
