@@ -1,6 +1,6 @@
 <template>
     <div class="locality-distance-block py-20">
-        <div class="flex flex-col justify-center mr-32 max-w-[35%]">
+        <div class="flex flex-col justify-center lg:mr-32 lg:max-w-[35%]">
             <h2 class="text-lg-title color-main-green">
                 Perfektní dostupnost do města i na dálnici D5
             </h2>
@@ -14,25 +14,25 @@
             <div class="locality-distance-block--bar">
                 <div id="distTrigger1">
                     <span class="text-md-capital uppercase">Autem do rokycan</span>
-                    <span class="text-md-title">5 min.</span>
+                    <span class="text-md-title whitespace-nowrap">5 min.</span>
                 </div>
             </div>
             <div class="locality-distance-block--bar">
                 <div id="distTrigger2">
                     <span class="text-md-capital uppercase">Autem do OC rokycanská</span>
-                    <span class="text-md-title">6 min.</span>
+                    <span class="text-md-title whitespace-nowrap">6 min.</span>
                 </div>
             </div>
             <div class="locality-distance-block--bar">
                 <div id="distTrigger3">
                     <span class="text-md-capital uppercase">Autem do centra Plzně</span>
-                    <span class="text-md-title">10 min.</span>
+                    <span class="text-md-title whitespace-nowrap">10 min.</span>
                 </div>
             </div>
             <div class="locality-distance-block--bar">
                 <div id="distTrigger4">
                     <span class="text-md-capital uppercase">MHD na hlavní nádraží</span>
-                    <span class="text-md-title">13 min.</span>
+                    <span class="text-md-title whitespace-nowrap">13 min.</span>
                 </div>
             </div>
         </div>
@@ -46,7 +46,7 @@ export default {
     mounted() {
         useTimeline({
             scrollTrigger: {
-                trigger: '.locality-distance-block',
+                trigger: '.locality-distance-block--bars',
                 start: 'top 70%',
                 toggleActions: 'play none none none',
                 onEnter: ({ animation }) => {
@@ -64,6 +64,11 @@ export default {
 <style lang="scss">
 .locality-distance-block {
     display: flex;
+    flex-direction: column;
+
+    @include lg {
+        flex-direction: row;
+    }
 
     > div {
         flex: 1;
@@ -97,6 +102,15 @@ export default {
         background-color: $color-main-green;
         border-radius: 50px;
         padding: 0 30px;
+
+        // Break bar label into two lines on mobile
+        > span:first-child {
+            width: 100px;
+            
+            @include lg() {
+                width: initial;
+            }
+        }
     }
 }
 </style>
