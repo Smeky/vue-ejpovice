@@ -61,7 +61,13 @@ export default {
             { id: 'download-4', label: 'Půdorysy' },
             { id: 'download-5', label: 'Stavba' },
         ]
-    })
+    }),
+    mounted() {
+        this.$store.commit('SET_NAVBAR_STATIC', true);
+    },
+    beforeDestroy() {
+        this.$store.commit('SET_NAVBAR_STATIC', false);
+    }
 }
 </script>
 
@@ -90,9 +96,11 @@ export default {
     background-color: $color-main-web-blue;
     
     padding: 60px 20px;
+    padding-top: 130px; // Position under navbar, can't use margin as that flickers on page leave
 
     @include lg() {
         padding: 120px;
+        padding-top: 190px; // Position under navbar
     }
 }
 </style>

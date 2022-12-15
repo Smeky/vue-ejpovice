@@ -1,6 +1,6 @@
 <template>
     <!-- Desktop navbar -->
-    <div id="navbar" class="navbar" v-if="!$store.state.isMobile">
+    <div id="navbar" class="navbar" v-if="!$store.state.isMobile" :class="{ 'navbar--static': $store.state.isNavbarStatic }">
         <div class="navbar--func flex gap-x-4 h-fit" @click="$store.dispatch('toggleMenu')">
             <img src="~/assets/icons/burger.svg" />
             <span class="text-navbar">Menu</span>
@@ -54,7 +54,7 @@ export default {
     },
     methods: {
         handleScroll() {
-            if (this.$store.state.isMobile)
+            if (this.$store.state.isMobile || this.$store.state.isNavbarStatic)
                 return
 
             const prev = this.isScrolled
@@ -111,5 +111,10 @@ export default {
         align-items: center;
         padding: 8px 12px;
     }
+}
+
+.navbar--static {
+    background-color: #12465C !important;
+    height: 70px !important;
 }
 </style>

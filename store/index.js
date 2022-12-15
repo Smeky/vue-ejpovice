@@ -2,6 +2,7 @@
 export const state = () => ({
     isMobile: false,
     isMenuOpen: false,
+    isNavbarStatic: false,
 
     navigation: [
         { label: 'Kontakt',      url: '/contact' },
@@ -19,6 +20,7 @@ export const state = () => ({
 export const mutations = {
     SET_IS_MOBILE: (state, isMobile) => { state.isMobile = isMobile },
     SET_MENU_OPEN: (state, value) => { state.isMenuOpen = value },
+    SET_NAVBAR_STATIC: (state, value) => { state.isNavbarStatic = value },
     SET_NAVIGATION: (state, navigation) => { state.navigation = navigation },
 }
 
