@@ -33,6 +33,7 @@ export default {
         height: 100%;
         border-radius: 50px;
         background-color: $color-white;
+        z-index: -1;
         transition: all 0.2s ease-in-out;
     }
 
@@ -41,6 +42,5 @@ export default {
             transform: scale(1.15);
         }
     }
-
 }
 </style>

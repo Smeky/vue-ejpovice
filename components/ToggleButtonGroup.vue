@@ -1,12 +1,12 @@
 <template>
     <div>
-        <div class="toggle-button-group">
+        <div class="toggle-button-group gap-3">
             <div v-for="item in items" 
                 :key="`tbutton-${item.id}`" 
                 class="toggle-button-group--item"
                 :class="{ 'toggle-button-group--item--active': item.id === selected }"
             >
-                <ButtonRounded no-hover class="button--blue mr-3" @click="$emit('click', item.id)">
+                <ButtonRounded no-hover class="button--blue" @click="$emit('click', item.id)">
                     {{ item.label }}
                 </ButtonRounded>
             </div>
