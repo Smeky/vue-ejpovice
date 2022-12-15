@@ -4,11 +4,11 @@
             <h1 class="text-lg-title">Dokumenty ke stažení</h1>
         </div>
 
-        <div class="download-page--content mt-md mb-gt">
+        <div id="dwlAnchorAll" class="download-page--content mt-md mb-gt">
             <BlockContainer>
-                <ToggleButtonGroup :items="items" :selected="selectedItem" />
+                <ToggleButtonGroup :items="items" :selected="selectedItem" @click="onToggleClick" />
 
-                <div class="my-sm">
+                <div id="dwlAnchor1" class="my-sm">
                     <h3 class="text-sm-title mb-5">Smlouvy</h3>
 
                     <div>
@@ -17,7 +17,7 @@
                     </div>
                 </div>
 
-                <div class="my-sm">
+                <div id="dwlAnchor2" class="my-sm">
                     <h3 class="text-sm-title mb-5">Standardy</h3>
 
                     <div>
@@ -26,7 +26,7 @@
                     </div>
                 </div>
 
-                <div class="my-sm">
+                <div id="dwlAnchor3" class="my-sm">
                     <h3 class="text-sm-title mb-5">Půdorysy</h3>
 
                     <div>
@@ -35,7 +35,7 @@
                     </div>
                 </div>
 
-                <div class="my-sm">
+                <div id="dwlAnchor4" class="my-sm">
                     <h3 class="text-sm-title mb-5">Stavba</h3>
 
                     <div>
@@ -53,13 +53,13 @@
 <script>
 export default {
     data: () => ({
-        selectedItem: 'download-1',
+        selectedItem: 'All',
         items: [
-            { id: 'download-1', label: 'Všechny' },
-            { id: 'download-2', label: 'Smlouvy' },
-            { id: 'download-3', label: 'Standardy' },
-            { id: 'download-4', label: 'Půdorysy' },
-            { id: 'download-5', label: 'Stavba' },
+            { id: 'All', label: 'Všechny' },
+            { id: '1', label: 'Smlouvy' },
+            { id: '2', label: 'Standardy' },
+            { id: '3', label: 'Půdorysy' },
+            { id: '4', label: 'Stavba' },
         ]
     }),
     mounted() {
@@ -67,6 +67,11 @@ export default {
     },
     beforeDestroy() {
         this.$store.commit('SET_NAVBAR_STATIC', false);
+    },
+    methods: {
+        onToggleClick(id) {
+            this.$scrollTo(`#dwlAnchor${id}`, 500, { offset: -100 })
+        }
     }
 }
 </script>

@@ -66,7 +66,7 @@ export default {
     &:hover {
         &:before {
             opacity: 1;
-            transform: scaleX(1.05)
+            transform: scaleX(1.05) scaleY(1.1);
         }
 
         .download-page-row--download {
