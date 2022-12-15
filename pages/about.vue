@@ -6,7 +6,9 @@
 
 <script>
 export default {
-
+    head: () => ({
+        title: 'O projektu | Ejpovice',
+    })
 }
 </script>
 

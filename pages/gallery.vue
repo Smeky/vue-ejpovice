@@ -41,7 +41,9 @@
 
 <script>
 export default {
-
+    head: () => ({
+        title: 'Galerie | Ejpovice',
+    })
 }
 </script>
 

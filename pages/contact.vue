@@ -6,7 +6,9 @@
 
 <script>
 export default {
-
+    head: () => ({
+        title: 'Kontakt | Ejpovice',
+    })
 }
 </script>
 

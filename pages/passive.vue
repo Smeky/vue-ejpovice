@@ -6,7 +6,9 @@
 
 <script>
 export default {
-
+    head: () => ({
+        title: 'Pasivní domy | Ejpovice',
+    })
 }
 </script>
 

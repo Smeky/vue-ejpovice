@@ -53,6 +53,9 @@
 <script>
 export default {
     name: 'DownloadPage',
+    head: () => ({
+        title: 'Ke stažení | Ejpovice',
+    }),
     data: () => ({
         selectedItem: 'All',
         items: [

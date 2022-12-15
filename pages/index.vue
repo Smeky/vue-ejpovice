@@ -93,7 +93,10 @@
 <script>
 export default {
     name: 'IndexPage',
-    layout: 'default'
+    layout: 'default',
+    head: () => ({
+        title: 'Domy a pozemky | Ejpovice',
+    })
 }
 </script>
 

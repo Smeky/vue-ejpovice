@@ -48,6 +48,9 @@ const ItemFilters = {
 }
 
 export default {
+    head: () => ({
+        title: 'Ceník | Ejpovice',
+    }),
     data: () => ({
         filterAvailable: false,
         filterItems: Object.keys(ItemFilters),

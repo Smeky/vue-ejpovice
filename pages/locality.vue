@@ -57,7 +57,9 @@
 
 <script>
 export default {
-
+    head: () => ({
+        title: 'Lokalita | Ejpovice',
+    })
 }
 </script>
 
