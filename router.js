@@ -1,16 +1,16 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import About from '~/pages/about'
-import Contact from '~/pages/contact'
-import Download from '~/pages/download'
-import Financing from '~/pages/financing'
-import Gallery from '~/pages/gallery'
-import Index from '~/pages/index'
-import Locality from '~/pages/locality'
-import Passive from '~/pages/passive'
-import Prices from '~/pages/prices'
-import Standards from '~/pages/standards'
+import Home from '~/components/Page/Home'
+import About from '~/components/Page/About'
+import Contact from '~/components/Page/Contact'
+import Download from '~/components/Page/Download'
+import Financing from '~/components/Page/Financing'
+import Gallery from '~/components/Page/Gallery'
+import Locality from '~/components/Page/Locality'
+import Passive from '~/components/Page/Passive'
+import Prices from '~/components/Page/Prices'
+import Standards from '~/components/Page/Standards'
 
 Vue.use(Router)
 
@@ -18,7 +18,7 @@ export function createRouter() {
   return new Router({
     mode: 'history',
     routes: [
-        { path: '/',             name: 'home',      component: Index },
+        { path: '/',             name: 'home',      component: Home },
         { path: '/o-projektu',   name: 'about',     component: About },
         { path: '/kontakt',      name: 'contact',   component: Contact },
         { path: '/ke-stazeni',   name: 'download',  component: Download },
