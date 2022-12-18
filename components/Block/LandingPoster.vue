@@ -9,7 +9,7 @@
                 {{ title }}
             </h1>
 
-            <ButtonIcon @click="$emit('click')">
+            <ButtonIcon @click.native="$emit('click')">
                 <IconArrow class="rotate-90 scale-75" color="#333" />
             </ButtonIcon>
         </div>
@@ -54,6 +54,9 @@ export default {
 }
 
 .block-landing-poster--content {
+    position: relative;
+    z-index: 0;
+
     display: flex;
     flex-direction: column;
     align-items: center;

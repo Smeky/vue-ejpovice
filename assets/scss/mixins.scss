@@ -13,6 +13,16 @@
     }
 }
 
+@mixin page-padding {
+    padding-left: 20px;
+    padding-right: 20px;
+
+    @include lg() {
+        padding-left: 120px;
+        padding-right: 120px;
+    }
+}
+
 @mixin xd-letter-spacing($spacing) {
     letter-spacing: math.div($spacing, 1000) * 1em;
 }

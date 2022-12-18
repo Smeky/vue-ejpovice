@@ -71,6 +71,8 @@ $button-rounded-height-large: 50px;
     @include button-base();
     
     position: relative;
+    z-index: 0;
+
     display: inline-flex;
     height: $button-rounded-height;
     padding: 16px 25px;

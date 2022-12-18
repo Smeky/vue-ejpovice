@@ -15,7 +15,7 @@ import Standards from '~/components/Page/Standards'
 Vue.use(Router)
 
 export function createRouter() {
-  return new Router({
+  const router = new Router({
     mode: 'history',
     routes: [
         { path: '/',             name: 'home',      component: Home },
@@ -30,4 +30,11 @@ export function createRouter() {
         { path: '/galerie',      name: 'gallery',   component: Gallery },
     ]
   })
+
+  router.beforeEach((to, from, next) => {
+    window.scrollTo(0, 0)
+    next()
+  })
+
+  return router
 }

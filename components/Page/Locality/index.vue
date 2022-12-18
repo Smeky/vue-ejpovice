@@ -1,11 +1,11 @@
 <template>
     <div class="locality-page">
-        <BlockLandingPoster title="Lokalita">
+        <BlockLandingPoster title="Lokalita" @click="$scrollTo('#LocalityAnchor')">
             <img src="~/assets/images/locality-poster.jpg" alt="Ejpovice. Klidná lokalita v sousedství Plzně." />
         </BlockLandingPoster>
 
         <div class="mt-md"></div>
-        <BlockContainer>
+        <BlockContainer id="LocalityAnchor">
             <BlockCard flip class="mb-gt" :image="require('~/assets/images/DJI_0137_v25.jpg')">
                 <div class="flex flex-col">
                     <h2 class="text-lg-title color-main-green ">

@@ -75,9 +75,7 @@
                             <NuxtLink :to="{ name: 'standards' }">
                                 <ButtonRounded large iconPosition="right" class="button--green">
                                     více o standardech
-                                    <template v-slot:icon>
-                                        <IconArrow color="#fff" />
-                                    </template>
+                                    <template #icon><IconArrow color="#fff" /></template>
                                 </ButtonRounded>
                             </NuxtLink>
                         </div>
@@ -130,12 +128,6 @@ export default {
 }
 
 .home .block-container {
-    padding-left: 20px;
-    padding-right: 20px;
-
-    @include lg() {
-        padding-left: 120px;
-        padding-right: 120px;
-    }
+    @include page-padding();
 }
 </style>
