@@ -30,7 +30,7 @@ export default {
     data: () => ({
         items: [
             { id: 'schedule1', label: 'zahájení stavby',  date: '04/2022', finished: true },
-            { id: 'schedule2', label: 'hrubá stavba',     date: '04/2022', finished: true },
+            { id: 'schedule2', label: 'hrubá stavba',     date: '04/2022', finished: false },
             { id: 'schedule3', label: 'omítky',           date: '04/2022', finished: false },
             { id: 'schedule4', label: 'kolaudace',        date: '04/2022', finished: false },
             { id: 'schedule5', label: 'předání klientům', date: '04/2022', finished: false },

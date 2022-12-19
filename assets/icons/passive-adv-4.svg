@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="49.998" height="49.998" viewBox="0 0 49.998 49.998">
+  <g id="Icons" transform="translate(0 -1996)">
+    <g id="Icon_Home" data-name="Icon Home" transform="translate(0 1996)">
+      <g id="Group_2199" data-name="Group 2199" transform="translate(0 1)">
+        <path id="Path_17047" data-name="Path 17047" d="M1.247,27.605a1.246,1.246,0,0,1-.923-2.084L22.355,1.173a3.469,3.469,0,0,1,5.2,0L49.586,25.522A1.247,1.247,0,0,1,47.737,27.2L25.706,2.847a.972.972,0,0,0-1.5,0L2.178,27.2a1.25,1.25,0,0,1-.926.412Z" transform="translate(0)" fill="#333"/>
+        <path id="Path_17048" data-name="Path 17048" d="M34.191,34.016H6.743A3.748,3.748,0,0,1,3,30.273V10.311a1.248,1.248,0,0,1,2.5,0V30.273a1.248,1.248,0,0,0,1.248,1.248H34.191a1.248,1.248,0,0,0,1.248-1.248V10.311a1.248,1.248,0,0,1,2.5,0V30.273a3.748,3.748,0,0,1-3.743,3.743" transform="translate(4.485 13.552)" fill="#333"/>
+      </g>
+      <rect id="space" width="49.998" height="49.998" fill="#333" opacity="0"/>
+    </g>
+  </g>
+</svg>

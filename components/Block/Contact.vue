@@ -1,5 +1,5 @@
 <template>
-    <div class="block-contact text-center">
+    <div class="block-contact text-center" :class="{ 'block-contact--light': light }">
         <BlockContainer class="flex flex-col lg:flex-row">
             <div class="flex flex-col justify-center items-center mx-5 my-24 lg:mx-40 lg:my-32">
                 <h2 class="text-lg-title">Sjednejte si schůzku</h2>
@@ -37,7 +37,12 @@
 
 <script>
 export default {
-
+    props: {
+        light: {
+            type: Boolean,
+            default: false
+        }
+    }
 }
 </script>
 
@@ -52,5 +57,9 @@ export default {
     .block-container > div {
         flex: 1;
     }
+}
+
+.block-contact--light {
+    background-color: $color-medium-divider;
 }
 </style>

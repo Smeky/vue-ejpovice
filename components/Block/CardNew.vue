@@ -1,12 +1,16 @@
 <template>
     <div class="card-block-new" :class="{ 'card-block--flipped': flip }">
-        <div class="card-block--image">
+        <template v-if="$slots.image">
+            <slot name="image"></slot>
+        </template>
+
+        <div v-else class="card-block--image">
             <img :src="image">
         </div>
 
         <div class="card-block--content p-5 lg:p-28 mb-16 lg:mb-0">
             <h2 class="text-lg-title color-main-green">{{ title }}</h2>
-            <p class="text-lg-paragraph my-8 lg:my-16">{{ text }}</p>
+            <p class="text-lg-paragraph">{{ text }}</p>
             <slot name="button"></slot>
         </div>
     </div>
@@ -17,7 +21,7 @@ export default {
     props: {
         image: {
             type: String,
-            required: true
+            default: null,
         },
         title: {
             type: String,
@@ -51,6 +55,22 @@ export default {
     }
 }
 
+.card-block--flipped {
+    @include lg() {
+        > div:last-child {
+            order: -1;
+        }
+    }
+}
+
+.card-block--content {
+    > *:not(:last-child) {
+        margin-bottom: 30px;
+
+        @include lg() { margin-bottom: 60px; }
+    }
+}
+
 // .card-block {
 //     display: grid;
 //     justify-content: space-between;
@@ -59,14 +79,6 @@ export default {
 
 //     @include lg() {
 //         grid-template-columns: minmax(0, 720px) minmax(0, 720px);
-//     }
-// }
-
-// .card-block--flipped {
-//     @include lg() {
-//         .card-block--image {
-//             order: 1;
-//         }
 //     }
 // }
 
