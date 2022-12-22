@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="49.998" height="49.998" viewBox="0 0 49.998 49.998">
+  <g id="Icons" transform="translate(0 -1996)">
+    <g id="Icon_Temperature" data-name="Icon Temperature" transform="translate(0 1996)">
+      <g id="Group_2191" data-name="Group 2191" transform="translate(11)">
+        <path id="Path_17031" data-name="Path 17031" d="M11.743,4.5h-2.5a1.248,1.248,0,1,1,0-2.5h2.5a1.248,1.248,0,1,1,0,2.5" transform="translate(11.962 2.991)" fill="#333"/>
+        <path id="Path_17032" data-name="Path 17032" d="M14.238,6.5H9.248a1.248,1.248,0,1,1,0-2.5h4.991a1.248,1.248,0,1,1,0,2.5" transform="translate(11.962 5.981)" fill="#333"/>
+        <path id="Path_17033" data-name="Path 17033" d="M11.743,8.5h-2.5a1.248,1.248,0,1,1,0-2.5h2.5a1.248,1.248,0,1,1,0,2.5" transform="translate(11.962 8.972)" fill="#333"/>
+        <path id="Path_17034" data-name="Path 17034" d="M14.238,10.5H9.248a1.248,1.248,0,1,1,0-2.5h4.991a1.248,1.248,0,1,1,0,2.5" transform="translate(11.962 11.962)" fill="#333"/>
+        <path id="Path_17035" data-name="Path 17035" d="M11.743,12.5h-2.5a1.248,1.248,0,1,1,0-2.5h2.5a1.248,1.248,0,1,1,0,2.5" transform="translate(11.962 14.953)" fill="#333"/>
+        <path id="Path_17036" data-name="Path 17036" d="M7.991,29.167V5.248a1.248,1.248,0,0,0-2.5,0v23.92a3.743,3.743,0,1,0,2.5,0M6.743,33.943A1.248,1.248,0,1,1,7.991,32.7a1.25,1.25,0,0,1-1.248,1.248" transform="translate(4.486 5.981)" fill="#333"/>
+        <path id="Path_17037" data-name="Path 17037" d="M11.229,49.906A11.229,11.229,0,0,1,4.991,29.34V6.238a6.238,6.238,0,0,1,12.477,0v23.1a11.229,11.229,0,0,1-6.238,20.566m0-47.411A3.748,3.748,0,0,0,7.486,6.238V30.031a1.255,1.255,0,0,1-.624,1.08,8.734,8.734,0,1,0,8.734,0,1.249,1.249,0,0,1-.624-1.08V6.238A3.748,3.748,0,0,0,11.229,2.5" fill="#333"/>
+      </g>
+      <rect id="space" width="49.998" height="49.998" fill="#333" opacity="0"/>
+    </g>
+  </g>
+</svg>

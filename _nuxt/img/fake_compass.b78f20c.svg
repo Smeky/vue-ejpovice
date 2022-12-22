@@ -1,0 +1,14 @@
+<svg id="Kompas" xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
+    <circle id="body" cx="40" cy="40" r="40" opacity="0.4"/>
+    <g id="strelka" transform="translate(1 3)">
+      <path id="Polygon_1" data-name="Polygon 1" d="M6,0l6,20H0Z" transform="translate(33 17)" fill="#fff"/>
+      <g id="Polygon_2" data-name="Polygon 2" transform="translate(45 57) rotate(180)">
+        <path id="Path_132" data-name="Path 132" d="M6,3.786,1.451,18.947h9.1L6,3.786M6,0l6,20H0Z" fill="#fff"/>
+      </g>
+    </g>
+    <text id="S" transform="translate(40 15)" fill="#fff" font-size="10" font-family="SegoeUI, Segoe UI"><tspan x="-2.656" y="0">S</tspan></text>
+    <text id="J" transform="translate(40 73)" fill="#fff" font-size="10" font-family="SegoeUI, Segoe UI"><tspan x="-1.785" y="0">J</tspan></text>
+    <text id="V" transform="translate(69 44)" fill="#fff" font-size="10" font-family="SegoeUI, Segoe UI"><tspan x="-3.105" y="0">V</tspan></text>
+    <text id="Z" transform="translate(11 44)" fill="#fff" font-size="10" font-family="SegoeUI, Segoe UI"><tspan x="-2.852" y="0">Z</tspan></text>
+</svg>
+  
